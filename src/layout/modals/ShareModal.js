@@ -13,21 +13,21 @@ function ShareModal() {
          </div>
          <div className="modal-body">
             <div className="share-via">
-               <a href="javascript:void(0)" id="whatsapp-share" className="share-opt whatsapp ripple-effect-1"
+               <a href="#" id="whatsapp-share" className="share-opt whatsapp ripple-effect-1"
                   target="_blank">
                   <i className="fab fa-whatsapp"></i>
                   <span>WhatsApp</span>
                </a>
-               <a href="javascript:void(0)" id="telegram-share" className="share-opt telegram ripple-effect-1"
+               <a href="#" id="telegram-share" className="share-opt telegram ripple-effect-1"
                   target="_blank">
                   <i className="fab fa-telegram"></i>
                   <span>Telegram</span>
                </a>
-               <a href="javascript:void(0)" id="sms-share" className="share-opt sms ripple-effect-1" target="_blank">
+               <a href="#" id="sms-share" className="share-opt sms ripple-effect-1" target="_blank">
                   <i className="fa-light fa-comment-alt-lines"></i>
                   <span>SMS</span>
                </a>
-               <a href="javascript:void(0)" id="email-share" className="share-opt email ripple-effect-1" target="_blank">
+               <a href="#" id="email-share" className="share-opt email ripple-effect-1" target="_blank">
                   <i className="fa-light fa-envelope"></i>
                   <span>Email</span>
                </a>

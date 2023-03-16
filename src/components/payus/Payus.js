@@ -1,6 +1,6 @@
-import './payus.scss';
+import './PayUs.scss';
 
-function Payus() {
+function PayUs() {
    return (
       <div className="page" id="payus">
          <div className="header">
@@ -44,7 +44,7 @@ function Payus() {
                </div>
             </div>
             <div className="pg-sec" data-not-configured="Payment gateway link not configured">
-               <a href="javascript:void(0)" target="_blank" className="pg-btn ripple-effect-2">
+               <a href="#" target="_blank" className="pg-btn ripple-effect-2">
                   <span>
                      <label className="en">Make Payment</label>
                      <label className="mr">व्यवहार करा</label>
@@ -122,4 +122,4 @@ function Payus() {
       </div>
    )
 }
-export default Payus;
+export default PayUs;

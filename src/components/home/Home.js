@@ -1,11 +1,75 @@
-import './home.scss';
+import { useEffect } from 'react';
+import $ from "jquery";
+import moment from 'moment';
+import { homeBOxHt } from '../../App'
+import './Home.scss';
 
 function Home() {
+
+
+   useEffect(() => {
+
+      //ESTABLISHED YEAR CALCULATION
+      (function () {
+         var estDateArray = $('#estYr').attr('data-est-date').split('-');
+         var estDate = moment([parseInt(estDateArray[2]), parseInt(estDateArray[1]) - 1, parseInt(estDateArray[0])]);
+         var currDate = moment();
+         var remYears = currDate.diff(estDate, 'years');
+         var remMonths = currDate.diff(estDate, 'months') % 12;
+         var estYear = estDateArray[2];
+         $('#estYr').text(estYear);
+         $('#passedYears').text(remYears);
+         $('#passedMonths').text(remMonths);
+      })();
+
+
+      //Business and Individual
+      $('.profile .top a').on('click', function () {
+         var target = $(this).data('target');
+         $('.profile .top a').removeClass('active');
+         $('.profile-item').removeClass('active');
+         $(target).addClass('active');
+         $(this).addClass('active');
+         homeBOxHt()
+      });
+
+
+
+      //profile bottom 3 button Action
+      $('.profile .bottom a, .header .action a').on('click', function (event) {
+         event.preventDefault();
+         var target = $(this).attr('href');
+         $(target).modal({
+            fadeDuration: 500,
+            fadeDelay: 0.30,
+            showClose: true,
+            clickClose: false,
+         });
+      });
+
+
+      //Home 6 tabs Action
+      $('.home-actions a').on('click', function (e) {
+         var target = $(this).attr('href');
+         if (target.includes("#")) {
+            $(target).modal({
+               fadeDuration: 500,
+               fadeDelay: 0.30,
+               showClose: true,
+               clickClose: false,
+            });
+         }
+         return false;
+      });
+
+
+   })
+
    return (
       <div className="page active" id="home">
          <div className="profile">
             <div className="top">
-               <a href="javascript:void(0)" data-target="#business" className="ripple-effect-1 ">
+               <a href="#" data-target="#business" className="ripple-effect-1 ">
                   <i className="fa-light fa-building"></i>
                   <span>
                      <label className="en">Business</label>
@@ -13,7 +77,7 @@ function Home() {
                      <label className="hn">व्यवसाय</label>
                   </span>
                </a>
-               <a href="javascript:void(0)" data-target="#individual" className="ripple-effect-1 active">
+               <a href="#" data-target="#individual" className="ripple-effect-1 active">
                   <i className="fa-light fa-user-tie"></i>
                   <span>
                      <label className="en">Individual</label>
@@ -24,7 +88,7 @@ function Home() {
             </div>
             <div className="middle circle">
                <div id="individual" className="profile-item active">
-                  <a className="image" href="javascript:void(0)">
+                  <a className="image" href="#">
                      <img src="./images/profile-photo-default.jpg" />
                   </a>
                   <div className=" head" id="individualName">
@@ -41,7 +105,7 @@ function Home() {
                   </div>
                </div>
                <div id="business" className="profile-item ">
-                  <a className="image" href="javascript:void(0)">
+                  <a className="image" href="#">
                      <img src="./images/business-logo-default.jpg" />
                   </a>
                   <div className="head" id="businessName">
@@ -93,7 +157,7 @@ function Home() {
                      <label className="hn">शेअर</label>
                   </div>
                </a>
-               <a href="javascript:void(0)" className="install-app ripple-effect-1">
+               <a href="#" className="install-app ripple-effect-1">
                   <div className="ico"><i className="fa-light fa-arrow-to-bottom"></i></div>
                   <div className="name">
                      <label className="en">Install</label>
@@ -145,7 +209,7 @@ function Home() {
                   </span>
                </span>
             </a>
-            <a href="javascript:void(0)" className="add-to-contact ripple-effect-1">
+            <a href="#" className="add-to-contact ripple-effect-1">
                <span>
                   <i className="fa-light fa-book"></i>
                   <span>
@@ -155,7 +219,7 @@ function Home() {
                   </span>
                </span>
             </a>
-            <a href="javascript:void(0)" target="_blank" className="google-map ripple-effect-1">
+            <a href="#" target="_blank" className="google-map ripple-effect-1">
                <span>
                   <i className="fa-light fa-map-marked-alt"></i>
                   <span>

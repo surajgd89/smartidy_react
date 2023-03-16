@@ -1,6 +1,19 @@
 
 import './modal.scss';
 function UpiPaymentModal() {
+
+   //UPI btn modal popup
+   $('.upi-btn').on('click', function (event) {
+      event.preventDefault();
+      var target = $(this).attr('href')
+      $(target).modal({
+         fadeDuration: 500,
+         fadeDelay: 0.30,
+         showClose: true,
+         clickClose: false,
+      });
+   });
+
    return (
       <div id="modal-upi-payment" className="modal">
          <div className="modal-header">
@@ -23,7 +36,7 @@ function UpiPaymentModal() {
                         required />
                   </div>
                   <div className="action-sec">
-                     <a href="javascript:void(0)" id="paylink" className="act-btn ripple-effect-1">
+                     <a href="#" id="paylink" className="act-btn ripple-effect-1">
                         <label className="en">Pay</label>
                         <label className="mr">देय द्या</label>
                         <label className="hn">भुगतान करें</label>

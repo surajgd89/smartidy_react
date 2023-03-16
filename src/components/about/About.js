@@ -1,6 +1,37 @@
-import './about.scss';
-
+import { useEffect } from 'react';
+import './About.scss';
+import $ from "jquery";
 function About() {
+
+
+   useEffect(() => {
+
+
+      //About Page Lbl
+      function aboutPgLbl() {
+         if ($(window).width() < 575.98) {
+            $('#about .data-row').each(function () {
+               var lbl = $(this).find('.lbl').remove();
+               $(this).find('.ico').append(lbl);
+            });
+         } else {
+            $('#about .data-row').each(function () {
+               var lbl = $(this).find('.lbl').remove();
+               $(this).find('.data').prepend(lbl);
+            });
+         }
+      }
+
+      $(window).on('resize', function () {
+         aboutPgLbl()
+      });
+
+      //Business Hours active
+      const day = new Date();
+      let currentDay = day.getDay();
+      $('.buss-hrs-tbl').find('tr[data-day="' + currentDay + '"]').addClass('active');
+   })
+
    return (
       <div className="page" id="about">
          <div className="header">
@@ -96,22 +127,22 @@ function About() {
                   </div>
                   <div className="val">
                      <div className="efiles-sec">
-                        <a href="javascript:void(0)" className="e-file ripple-effect-2" download>
+                        <a href="#" className="e-file ripple-effect-2" download>
                            <span className="file-ico"><i className="fa-light fa-file-pdf"></i></span>
                            <span className="file-name">File 1.pdf</span>
                            <span className="file-act-ico"><i className="fad fa-download"></i></span>
                         </a>
-                        <a href="javascript:void(0)" className="e-file ripple-effect-2" download>
+                        <a href="#" className="e-file ripple-effect-2" download>
                            <span className="file-ico"><i className="fa-light fa-file-excel"></i></span>
                            <span className="file-name">File 2.xls</span>
                            <span className="file-act-ico"><i className="fad fa-download"></i></span>
                         </a>
-                        <a href="javascript:void(0)" className="e-file ripple-effect-2" download>
+                        <a href="#" className="e-file ripple-effect-2" download>
                            <span className="file-ico"><i className="fa-light fa-file-powerpoint"></i></span>
                            <span className="file-name">File 3.ppt</span>
                            <span className="file-act-ico"><i className="fad fa-download"></i></span>
                         </a>
-                        <a href="javascript:void(0)" className="e-file ripple-effect-2" download>
+                        <a href="#" className="e-file ripple-effect-2" download>
                            <span className="file-ico"><i className="fa-light fa-file-word"></i></span>
                            <span className="file-name">File 4.doc</span>
                            <span className="file-act-ico"><i className="fad fa-download"></i></span>
@@ -212,7 +243,7 @@ function About() {
                <div className="data">
                   <div className="lbl">SmartIDy URL</div>
                   <div className="val">
-                     <a href="javascript:void(0)" target="_blank" id="copy-smartidy-url"
+                     <a href="#" target="_blank" id="copy-smartidy-url"
                         className="link smartidy-url"></a><i className="fa-light fa-clone copy-to-clipboard"
                            data-clipboard-target="#copy-smartidy-url"></i>
                   </div>
