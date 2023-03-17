@@ -13,7 +13,7 @@ function EmailModal() {
          </div>
          <div className="modal-body">
             <div className="item-list emails">
-               <a href="mailto:suraj.gd89@gmail.com" target="_blank" className="item-row add-vcard ripple-effect-2">
+               <a href="mailto:suraj.gd89@gmail.com" className="item-row add-vcard ripple-effect-2">
                   <span className="lbl">
                      <label className="en">Individual</label>
                      <label className="mr">वैयक्तिक</label>
@@ -21,7 +21,7 @@ function EmailModal() {
                   </span>
                   <span className="val">individual@gmail.com</span>
                </a>
-               <a href="mailto:mail.shreeshadigital@gmail.com" target="_blank" className="item-row ripple-effect-2">
+               <a href="mailto:mail.shreeshadigital@gmail.com" className="item-row ripple-effect-2">
                   <span className="lbl">
                      <label className="en">Business</label>
                      <label className="mr">व्यवसाय</label>

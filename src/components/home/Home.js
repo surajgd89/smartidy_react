@@ -1,69 +1,7 @@
-import { useEffect } from 'react';
-import $ from "jquery";
-import moment from 'moment';
-import { homeBOxHt } from '../../App'
+import ProfilePhotoDefault from '../../assets/images/profile-photo-default.jpg'
 import './Home.scss';
 
 function Home() {
-
-
-   useEffect(() => {
-
-      //ESTABLISHED YEAR CALCULATION
-      (function () {
-         var estDateArray = $('#estYr').attr('data-est-date').split('-');
-         var estDate = moment([parseInt(estDateArray[2]), parseInt(estDateArray[1]) - 1, parseInt(estDateArray[0])]);
-         var currDate = moment();
-         var remYears = currDate.diff(estDate, 'years');
-         var remMonths = currDate.diff(estDate, 'months') % 12;
-         var estYear = estDateArray[2];
-         $('#estYr').text(estYear);
-         $('#passedYears').text(remYears);
-         $('#passedMonths').text(remMonths);
-      })();
-
-
-      //Business and Individual
-      $('.profile .top a').on('click', function () {
-         var target = $(this).data('target');
-         $('.profile .top a').removeClass('active');
-         $('.profile-item').removeClass('active');
-         $(target).addClass('active');
-         $(this).addClass('active');
-         homeBOxHt()
-      });
-
-
-
-      //profile bottom 3 button Action
-      $('.profile .bottom a, .header .action a').on('click', function (event) {
-         event.preventDefault();
-         var target = $(this).attr('href');
-         $(target).modal({
-            fadeDuration: 500,
-            fadeDelay: 0.30,
-            showClose: true,
-            clickClose: false,
-         });
-      });
-
-
-      //Home 6 tabs Action
-      $('.home-actions a').on('click', function (e) {
-         var target = $(this).attr('href');
-         if (target.includes("#")) {
-            $(target).modal({
-               fadeDuration: 500,
-               fadeDelay: 0.30,
-               showClose: true,
-               clickClose: false,
-            });
-         }
-         return false;
-      });
-
-
-   })
 
    return (
       <div className="page active" id="home">
@@ -89,7 +27,7 @@ function Home() {
             <div className="middle circle">
                <div id="individual" className="profile-item active">
                   <a className="image" href="#">
-                     <img src="./images/profile-photo-default.jpg" />
+                     <img src={ProfilePhotoDefault} />
                   </a>
                   <div className=" head" id="individualName">
                      <label className="en">Good Name</label>
@@ -219,7 +157,7 @@ function Home() {
                   </span>
                </span>
             </a>
-            <a href="#" target="_blank" className="google-map ripple-effect-1">
+            <a href="#" className="google-map ripple-effect-1">
                <span>
                   <i className="fa-light fa-map-marked-alt"></i>
                   <span>
@@ -232,27 +170,27 @@ function Home() {
          </div>
 
          <div className="social">
-            <a href="https://www.facebook.com/enter_your_id" target="_blank" className="facebook">
+            <a href="https://www.facebook.com/enter_your_id" className="facebook">
                <i className="fab fa-facebook-f"></i>
                <span>Facebook</span>
             </a>
-            <a href="https://twitter.com/enter_your_id" target="_blank" className="twitter">
+            <a href="https://twitter.com/enter_your_id" className="twitter">
                <i className="fab fa-twitter"></i>
                <span>Twitter</span>
             </a>
-            <a href="https://www.linkedin.com/in/enter_your_id/" target="_blank" className="linkedin">
+            <a href="https://www.linkedin.com/in/enter_your_id/" className="linkedin">
                <i className="fab fa-linkedin-in"></i>
                <span>Linkedin</span>
             </a>
-            <a href="https://www.instagram.com/enter_your_id/" target="_blank" className="instagram">
+            <a href="https://www.instagram.com/enter_your_id/" className="instagram">
                <i className="fab fa-instagram"></i>
                <span>Instagram</span>
             </a>
-            <a href="https://www.youtube.com/channel/enter_your_id/" target="_blank" className="youtube">
+            <a href="https://www.youtube.com/channel/enter_your_id/" className="youtube">
                <i className="fab fa-youtube"></i>
                <span>YouTube</span>
             </a>
-            <a href="https://wa.me/c/911234567890" target="_blank" className="whatsapp">
+            <a href="https://wa.me/c/911234567890" className="whatsapp">
                <i className="fab fa-whatsapp"></i>
                <span>Catalogue</span>
             </a>

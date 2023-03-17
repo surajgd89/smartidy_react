@@ -1,37 +1,7 @@
-import { useEffect } from 'react';
+
 import './About.scss';
-import $ from "jquery";
+
 function About() {
-
-
-   useEffect(() => {
-
-
-      //About Page Lbl
-      function aboutPgLbl() {
-         if ($(window).width() < 575.98) {
-            $('#about .data-row').each(function () {
-               var lbl = $(this).find('.lbl').remove();
-               $(this).find('.ico').append(lbl);
-            });
-         } else {
-            $('#about .data-row').each(function () {
-               var lbl = $(this).find('.lbl').remove();
-               $(this).find('.data').prepend(lbl);
-            });
-         }
-      }
-
-      $(window).on('resize', function () {
-         aboutPgLbl()
-      });
-
-      //Business Hours active
-      const day = new Date();
-      let currentDay = day.getDay();
-      $('.buss-hrs-tbl').find('tr[data-day="' + currentDay + '"]').addClass('active');
-   })
-
    return (
       <div className="page" id="about">
          <div className="header">
@@ -229,7 +199,7 @@ function About() {
                      <label className="mr">संकेतस्थळ</label>
                      <label className="hn">वेबसाइट</label>
                   </div>
-                  <div className="val"><a href="https://www.websitename.com/" target="_blank"
+                  <div className="val"><a href="https://www.websitename.com/"
                      id="copy-business-website" className="link">www.websiteName.com</a><i
                         className="fa-light fa-clone copy-to-clipboard"
                         data-clipboard-target="#copy-business-website"></i>
@@ -243,7 +213,7 @@ function About() {
                <div className="data">
                   <div className="lbl">SmartIDy URL</div>
                   <div className="val">
-                     <a href="#" target="_blank" id="copy-smartidy-url"
+                     <a href="#" id="copy-smartidy-url"
                         className="link smartidy-url"></a><i className="fa-light fa-clone copy-to-clipboard"
                            data-clipboard-target="#copy-smartidy-url"></i>
                   </div>

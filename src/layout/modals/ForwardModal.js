@@ -26,7 +26,7 @@ function ForwardModal() {
                         required />
                   </div>
                   <div className="action-sec">
-                     <a href="#" target="_blank" id="WhatsAppBtn" className="act-btn ripple-effect-1">
+                     <a href="#" id="WhatsAppBtn" className="act-btn ripple-effect-1">
                         <label className="en">Share on WhatsApp</label>
                         <label className="mr">WhatsApp वर पाठवा</label>
                         <label className="hn">WhatsApp पर भेजें</label>

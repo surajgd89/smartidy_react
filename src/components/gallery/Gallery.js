@@ -1,47 +1,8 @@
 import './Gallery.scss';
-import $ from "jquery";
+
+
 
 function Gallery() {
-
-
-   //Videos Gallery
-   $('.videos-area a.video-item').magnificPopup({
-      type: 'iframe',
-      mainClass: 'mfp-fade',
-      easing: 'ease-in-out',
-      fixedContentPos: false,
-      closeBtnInside: false,
-      gallery: {
-         enabled: true
-      },
-      zoom: {
-         enabled: true,
-         duration: 300
-      }
-   });
-
-   //Images Gallery
-   $('.images-area a.img-item').magnificPopup({
-      type: 'image',
-      closeBtnInside: false,
-      closeOnContentClick: true,
-      mainClass: 'mfp-with-zoom mfp-img-mobile',
-      easing: 'ease-in-out',
-      image: {
-         verticalFit: true
-      },
-      gallery: {
-         enabled: true
-      },
-      image: {
-         titleSrc: 'title'
-      },
-      zoom: {
-         enabled: true,
-         duration: 300
-      }
-   });
-
    return (
       <div className="page" id="gallery">
          <div className="header">

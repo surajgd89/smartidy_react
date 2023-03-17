@@ -2,7 +2,6 @@
 
 :root {
     --font: 'Poppins';
-
     // Font Weight
     --fw-thin: 100;
     --fw-ex-light: 200;
@@ -101,6 +100,12 @@
     z-index: 2;
 }
 
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
 body {
     font-family: var(--font);
     font-size: 14px;
@@ -190,26 +195,14 @@ button {
         }
 
         .page {
-            display: none;
             min-height: calc(100vh - 80px);
-            -webkit-animation: fadeInAnimation ease 1s;
             animation: fadeInAnimation ease 1s;
-            -webkit-animation-iteration-count: 1;
             animation-iteration-count: 1;
             -webkit-animation-fill-mode: forwards;
             animation-fill-mode: forwards;
 
             @media (max-width: 575.98px) {
                 min-height: calc(100vh - 65px);
-            }
-
-            @-webkit-keyframes fadeInAnimation {
-                0% {
-                    opacity: 0;
-                }
-                100% {
-                    opacity: 1;
-                }
             }
 
             @keyframes fadeInAnimation {
@@ -279,7 +272,7 @@ button {
 
 //FOR PREFERRED LANGUAGE SMARTIDY
 
-body {
+.wrapper {
     label {
         margin: 0;
         padding: 0;

@@ -13,7 +13,7 @@ function VisitModal() {
          </div>
          <div className="modal-body">
             <div className="item-list">
-               <a href="http://www.shreeshadigital.com/" target="_blank" className="item-row ripple-effect-2">
+               <a href="http://www.shreeshadigital.com/" className="item-row ripple-effect-2">
                   <span className="lbl">
                      <label className="en">Website</label>
                      <label className="mr">संकेतस्थळ</label>
@@ -21,7 +21,7 @@ function VisitModal() {
                   </span>
                   <span className="val">www.businessname.com</span>
                </a>
-               <a href="http://www.shreeshadigital.com/" target="_blank" className="item-row ripple-effect-2">
+               <a href="http://www.shreeshadigital.com/" className="item-row ripple-effect-2">
                   <span className="lbl">
                      <label className="en">ePortfolio</label>
                      <label className="mr">ePortfolio</label>

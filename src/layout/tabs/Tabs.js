@@ -1,44 +1,11 @@
-import { useEffect } from "react";
+
 import { Outlet, Link } from "react-router-dom";
-import $ from "jquery";
-import { homeBOxHt } from '../../App'
+
 import './Tabs.scss';
 
 function Tabs() {
 
-   useEffect(() => {
-      //PAGE TABS
-      $('.tabs a').on('click', function (e) {
-         e.preventDefault();
-         $(".page-loader").fadeIn('fast');
-         $('.tabs a').removeClass('active');
-         $(this).addClass('active');
-         var targetid = $(this).data('target');
-         $('.page').removeClass('active');
-         $('#' + targetid).addClass('active');
-         var position = $(this).position();
-         var width = $(this).width();
-         $(".tabs-floor").css({
-            "left": position.left,
-            "width": width
-         });
 
-         setTimeout(function () {
-            $(".page-loader").fadeOut('slow');
-            $("html,body").animate({ scrollTop: 0 }, 800);
-            homeBOxHt();
-         }, 800);
-
-      });
-
-      //Tabs Bottom Border Animation on load
-      var actWidth = $(".tabs a.active").width();
-      var actPosition = $(".tabs a.active").position();
-      $(".tabs-floor").css({
-         "left": actPosition.left,
-         "width": actWidth
-      });
-   })
 
    return (
       <>

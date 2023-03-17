@@ -1,5 +1,5 @@
 import './PayUs.scss';
-
+import PGLogoDefault from '../../assets/images/pg-logo-default.jpg'
 function PayUs() {
    return (
       <div className="page" id="payus">
@@ -44,7 +44,7 @@ function PayUs() {
                </div>
             </div>
             <div className="pg-sec" data-not-configured="Payment gateway link not configured">
-               <a href="#" target="_blank" className="pg-btn ripple-effect-2">
+               <a href="#" className="pg-btn ripple-effect-2">
                   <span>
                      <label className="en">Make Payment</label>
                      <label className="mr">व्यवहार करा</label>
@@ -56,7 +56,7 @@ function PayUs() {
                      <label className="hn"> UPI और Net Banking के व्यवहार के लिए </label>
                   </span>
                   <div className="pg-logos">
-                     <img src="images/pg-logo-default.jpg" alt="Instamojo" />
+                     <img src={PGLogoDefault} />
                   </div>
                </a>
             </div>
