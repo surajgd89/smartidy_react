@@ -1,7 +1,8 @@
 
 import './About.scss';
 
-function About() {
+function About(props) {
+   const setModalOpen = props.setModalOpen;
    return (
       <div className="page" id="about">
          <div className="header">
@@ -11,7 +12,7 @@ function About() {
                <label className="hn">जानकारी</label>
             </div>
             <div className="action">
-               <a href="#modal-share" className="share-all ripple-effect-1">
+               <a onClick={() => { setModalOpen({ 'ShareModal': true }) }} className="share-all ripple-effect-1">
                   <i className="fa-light fa-share-alt"></i>
                </a>
             </div>

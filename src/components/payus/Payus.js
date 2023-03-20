@@ -1,6 +1,13 @@
 import './PayUs.scss';
-import PGLogoDefault from '../../assets/images/pg-logo-default.jpg'
-function PayUs() {
+
+import PGLogoDefault from '../../assets/images/pg-logo-default.jpg';
+import GpayLogo from "../../assets/images/g-pay.png";
+import PhonePayLogo from "../../assets/images/p-pay.png";
+import PayTmLogo from "../../assets/images/paytm.png";
+import BhimLogo from "../../assets/images/bhim.png";
+
+function PayUs(props) {
+   const setModalOpen = props.setModalOpen;
    return (
       <div className="page" id="payus">
          <div className="header">
@@ -10,14 +17,14 @@ function PayUs() {
                <label className="hn">व्यवहार</label>
             </div>
             <div className="action">
-               <a href="#modal-share" className="share-all" title="Share Via">
+               <a onClick={() => { setModalOpen({ 'ShareModal': true }) }} className="share-all" title="Share Via">
                   <i className="fa-light fa-share-alt"></i>
                </a>
             </div>
          </div>
          <div className="content">
             <div className="upi-sec" data-not-configured="UPI ID not configured">
-               <a href="#modal-upi-payment" className="upi-btn ripple-effect-2">
+               <a onClick={() => { setModalOpen({ 'UpiPaymentModal': true }) }} className="upi-btn ripple-effect-2">
                   <span>
                      <label className="en">Pay with UPI</label>
                      <label className="mr">UPI द्वारे पैसे पाठवा</label>
@@ -32,10 +39,10 @@ function PayUs() {
                         आदि</label>
                   </span>
                   <div className="upi-logos">
-                     <img src="images/g-pay.png" alt="" />
-                     <img src="images/p-pay.png" alt="" />
-                     <img src="images/paytm.png" alt="" />
-                     <img src="images/bhim.png" alt="" />
+                     <img src={GpayLogo} />
+                     <img src={PhonePayLogo} />
+                     <img src={PayTmLogo} />
+                     <img src={BhimLogo} />
                   </div>
                </a>
                <div className="upi-id">

@@ -9,7 +9,7 @@ function Tabs() {
 
    return (
       <>
-
+         <Outlet />
          <div className="tabs">
             <Link to="/" data-target="home" className="ripple-effect-1 active">
                <span>
@@ -53,7 +53,7 @@ function Tabs() {
             </Link>
             <div className="tabs-floor"></div>
          </div>
-         <Outlet />
+
       </>
    )
 }

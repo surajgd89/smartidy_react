@@ -1,8 +1,11 @@
 import './Gallery.scss';
 
+import ProfilePhotoDefault from '../../assets/images/gallery-default.jpg'
 
 
-function Gallery() {
+
+function Gallery(props) {
+   const setModalOpen = props.setModalOpen;
    return (
       <div className="page" id="gallery">
          <div className="header">
@@ -12,7 +15,7 @@ function Gallery() {
                <label className="hn">गॅलरी</label>
             </div>
             <div className="action">
-               <a href="#modal-share" className="share-all ripple-effect-1">
+               <a onClick={() => { setModalOpen({ 'ShareModal': true }) }} className="share-all ripple-effect-1">
                   <i className="fa-light fa-share-alt"></i>
                </a>
             </div>
@@ -31,23 +34,23 @@ function Gallery() {
                </div>
                <div className="images-area ">
                   <div className="images-list">
-                     <a className="img-item" href="./images/gallery-default.jpg">
-                        <img src="./images/gallery-default.jpg" />
+                     <a className="img-item" href={ProfilePhotoDefault}>
+                        <img src={ProfilePhotoDefault} />
                      </a>
-                     <a className="img-item" href="./images/gallery-default.jpg">
-                        <img src="./images/gallery-default.jpg" />
+                     <a className="img-item" href={ProfilePhotoDefault}>
+                        <img src={ProfilePhotoDefault} />
                      </a>
-                     <a className="img-item" href="./images/gallery-default.jpg">
-                        <img src="./images/gallery-default.jpg" />
+                     <a className="img-item" href={ProfilePhotoDefault}>
+                        <img src={ProfilePhotoDefault} />
                      </a>
-                     <a className="img-item" href="./images/gallery-default.jpg">
-                        <img src="./images/gallery-default.jpg" />
+                     <a className="img-item" href={ProfilePhotoDefault}>
+                        <img src={ProfilePhotoDefault} />
                      </a>
-                     <a className="img-item" href="./images/gallery-default.jpg">
-                        <img src="./images/gallery-default.jpg" />
+                     <a className="img-item" href={ProfilePhotoDefault}>
+                        <img src={ProfilePhotoDefault} />
                      </a>
-                     <a className="img-item" href="./images/gallery-default.jpg">
-                        <img src="./images/gallery-default.jpg" />
+                     <a className="img-item" href={ProfilePhotoDefault}>
+                        <img src={ProfilePhotoDefault} />
                      </a>
                   </div>
                   <div className="info-message">
@@ -104,4 +107,6 @@ function Gallery() {
       </div>
    )
 }
+
+
 export default Gallery;
