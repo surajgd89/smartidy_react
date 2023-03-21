@@ -7,7 +7,7 @@ function VisitModal(props) {
 
       <div className="modal-backdrop">
          <div className="modal">
-            <a className='close-modal' onClick={() => { setModalOpen({ 'VisitModal': false }) }} ><i className='fa-light fa-times'></i></a>
+            <a href="#" className='close-modal' onClick={(e) => { e.preventDefault(); setModalOpen({ 'VisitModal': false }) }} ><i className='fa-light fa-times'></i></a>
             <div className="modal-header">
                <div className="ico"><i className="fa-light fa-external-link-square"></i></div>
                <div className="title">

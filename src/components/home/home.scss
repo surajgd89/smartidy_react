@@ -59,12 +59,16 @@
             border: 0;
 
             .profile-item {
-                display: none;
+                animation: fadeIn 0.3s ease-in-out both;
 
-                &.active {
-                    display: block;
+                @keyframes fadeIn {
+                    0% {
+                        opacity: 0;
+                    }
+                    100% {
+                        opacity: 1;
+                    }
                 }
-
                 .image {
                     display: block;
                     margin: 0 auto;

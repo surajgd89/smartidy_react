@@ -6,7 +6,7 @@ function CallModal(props) {
    return (
       <div className="modal-backdrop">
          <div className="modal">
-            <a className='close-modal' onClick={() => { setModalOpen({ 'CallModal': false }) }}><i className='fa-light fa-times'></i></a>
+            <a href="#" className='close-modal' onClick={(e) => { e.preventDefault(); setModalOpen({ 'CallModal': false }) }}><i className='fa-light fa-times'></i></a>
             <div className="modal-header">
                <div className="ico"><i className="fa-light fa-phone"></i></div>
                <div className="title">

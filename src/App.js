@@ -23,29 +23,18 @@ import UpiPaymentModal from './layout/modals/UpiPaymentModal';
 export default function App() {
 
 
-  // let [modalOpen, setModalOpen] = useState({
-  //   'VisitModal': false,
-  //   'ForwardModal': false,
-  //   'ShareModal': false,
-  //   'CallModal': false,
-  //   'EmailModal': false,
-  //   'ChatModal': false,
-  //   'SmsModal': false,
-  //   'UpiPaymentModal': false,
-  // });
+  let [modalOpen, setModalOpen] = useState({
+    VisitModal: false,
+    ForwardModal: false,
+    ShareModal: false,
+    CallModal: false,
+    EmailModal: false,
+    ChatModal: false,
+    SmsModal: false,
+    UpiPaymentModal: false,
+  });
 
-  let [VisitModal, setVisitModal] = useState(false);
-  let [ForwardModal, setForwardModal] = useState(false);
-  let [ShareModal, setShareModal] = useState(false);
-  let [CallModal, setCallModal] = useState(false);
-  let [EmailModal, setEmailModal] = useState(false);
-  let [ChatModal, setChatModal] = useState(false);
-  let [SmsModal, setSmsModal] = useState(false);
-  let [UpiPaymentModal, setUpiPaymentModal] = useState(false);
 
-  // useEffect(() => {
-  //   console.log(modalOpen.VisitModal)
-  // },[]);
 
 
   return (
@@ -55,26 +44,25 @@ export default function App() {
           <BrowserRouter>
             <Routes>
               <Route path="/" element={<Tabs />}>
-                <Route index element={<Home modal={{
-                  setVisitModal, setForwardModal, setShareModal,
-                  setCallModal, setEmailModal, setChatModal, setSmsModal
-                }} />} />
-                <Route path="about" element={<About modal={setShareModal} />} />
-                <Route path="gallery" element={<Gallery modal={setShareModal} />} />
-                <Route path="payus" element={<PayUs modal={{ setShareModal, setUpiPaymentModal }} />} />
+                <Route index element={<Home modal={setModalOpen} />} />
+                <Route path="about" element={<About modal={setModalOpen} />} />
+                <Route path="gallery" element={<Gallery modal={setModalOpen} />} />
+                <Route path="payus" element={<PayUs modal={setModalOpen} />} />
               </Route>
             </Routes>
           </BrowserRouter>
         </div>
 
-        {VisitModal && <VisitModal modal={setVisitModal} />}
-        {ForwardModal && <ForwardModal modal={setForwardModal} />}
-        {ShareModal && <ShareModal modal={setShareModal} />}
-        {CallModal && <CallModal modal={setCallModal} />}
-        {EmailModal && <EmailModal modal={setEmailModal} />}
-        {ChatModal && <ChatModal modal={setChatModal} />}
-        {SmsModal && <SmsModal modal={setSmsModal} />}
-        {UpiPaymentModal && <UpiPaymentModal modal={setUpiPaymentModal} />}
+
+
+        {modalOpen.VisitModal && <VisitModal modal={setModalOpen} />}
+        {modalOpen.ForwardModal && <ForwardModal modal={setModalOpen} />}
+        {modalOpen.ShareModal && <ShareModal modal={setModalOpen} />}
+        {modalOpen.CallModal && <CallModal modal={setModalOpen} />}
+        {modalOpen.EmailModal && <EmailModal modal={setModalOpen} />}
+        {modalOpen.ChatModal && <ChatModal modal={setModalOpen} />}
+        {modalOpen.SmsModal && <SmsModal modal={setModalOpen} />}
+        {modalOpen.UpiPaymentModal && <UpiPaymentModal modal={setModalOpen} />}
 
         <div className="page-loader"></div>
 

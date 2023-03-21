@@ -1,19 +1,21 @@
-import ProfilePhotoDefault from '../../assets/images/profile-photo-default.jpg'
+import { useEffect, useState } from 'react';
+import ProfilePhotoDefault from '../../assets/images/profile-photo-default.jpg';
+import BusinessLogoDefault from '../../assets/images/business-logo-default.jpg';
 import './Home.scss';
 
 function Home(props) {
-   console.log(props)
-   let { setVisitModal } = props.modal;
+   let setModalOpen = props.modal;
 
-   //console.log(setVisitModal)
+   let [Profile, setProfile] = useState({ Business: false, Individual: false });
+
+
 
    return (
-
       <>
          <div className="page active" id="home">
             <div className="profile">
                <div className="top">
-                  <a href="#" data-target="#business" className="ripple-effect-1 ">
+                  <a href="#" onClick={(e) => { e.preventDefault(); setProfile({ Business: true }) }} className={`ripple-effect-1 ${Profile.Business && 'active'}`}>
                      <i className="fa-light fa-building"></i>
                      <span>
                         <label className="en">Business</label>
@@ -21,7 +23,7 @@ function Home(props) {
                         <label className="hn">व्यवसाय</label>
                      </span>
                   </a>
-                  <a href="#" data-target="#individual" className="ripple-effect-1 active">
+                  <a href="#" onClick={(e) => { e.preventDefault(); setProfile({ Individual: true }) }} className={`ripple-effect-1 ${Profile.Individual && 'active'}`}>
                      <i className="fa-light fa-user-tie"></i>
                      <span>
                         <label className="en">Individual</label>
@@ -31,8 +33,8 @@ function Home(props) {
                   </a>
                </div>
                <div className="middle circle">
-                  <div id="individual" className="profile-item active">
-                     <a className="image" href="#">
+                  {Profile.Individual && <div id="individual" className="profile-item">
+                     <a className="image" href="#" onClick={(e) => { e.preventDefault(); }}>
                         <img src={ProfilePhotoDefault} />
                      </a>
                      <div className=" head" id="individualName">
@@ -47,37 +49,41 @@ function Home(props) {
                            <label className="hn">विशेष कौशल्य</label>
                         </span>
                      </div>
-                  </div>
-                  <div id="business" className="profile-item ">
-                     <a className="image" href="#">
-                        <img src="./images/business-logo-default.jpg" />
-                     </a>
-                     <div className="head" id="businessName">
-                        <label className="en">Business Name</label>
-                        <label className="mr">व्यवसायाचे नाव</label>
-                        <label className="hn">व्यवसाय का नाम</label>
+                  </div>}
+
+
+                  {Profile.Business &&
+                     <div id="business" className="profile-item">
+                        <a className="image" href="#" onClick={(e) => { e.preventDefault(); }}>
+                           <img src={BusinessLogoDefault} />
+                        </a>
+                        <div className="head" id="businessName">
+                           <label className="en">Business Name</label>
+                           <label className="mr">व्यवसायाचे नाव</label>
+                           <label className="hn">व्यवसाय का नाम</label>
+                        </div>
+                        <div className="subhead">
+                           <label className="en">Established in</label>
+                           <label className="mr">स्थापना</label>
+                           <label className="hn">स्थापना</label>
+                           &nbsp;<span id="estYr" data-est-date="01-01-2021"></span>&nbsp;&nbsp;
+                           <span className="year-month">(<span id="passedYears"></span>&nbsp;
+                              <label className="en">years</label>
+                              <label className="mr">वर्षे</label>
+                              <label className="hn">वर्षे</label>
+                              &nbsp;
+                              <span id="passedMonths"></span>&nbsp;
+                              <label className="en">months</label>
+                              <label className="mr">महिने</label>
+                              <label className="hn">महिने</label>)
+                           </span>
+                        </div>
                      </div>
-                     <div className="subhead">
-                        <label className="en">Established in</label>
-                        <label className="mr">स्थापना</label>
-                        <label className="hn">स्थापना</label>
-                        &nbsp;<span id="estYr" data-est-date="01-01-2021"></span>&nbsp;&nbsp;
-                        <span className="year-month">(<span id="passedYears"></span>&nbsp;
-                           <label className="en">years</label>
-                           <label className="mr">वर्षे</label>
-                           <label className="hn">वर्षे</label>
-                           &nbsp;
-                           <span id="passedMonths"></span>&nbsp;
-                           <label className="en">months</label>
-                           <label className="mr">महिने</label>
-                           <label className="hn">महिने</label>)
-                        </span>
-                     </div>
-                  </div>
+                  }
                </div>
 
                <div className="bottom">
-                  <a onClick={() => { setVisitModal(true) }} className="visit-us ripple-effect-1">
+                  <a href="#" onClick={(e) => { e.preventDefault(); setModalOpen({ VisitModal: true }) }} className="visit-us ripple-effect-1">
                      <div className="ico"><i className="fa-light fa-external-link-square"></i></div>
                      <div className="name">
                         <label className="en">Links</label>
@@ -85,7 +91,7 @@ function Home(props) {
                         <label className="hn">लिंक्स</label>
                      </div>
                   </a>
-                  <a onClick={() => { setForwardModal(true) }} className="share-one ripple-effect-1">
+                  <a href="#" onClick={(e) => { e.preventDefault(); setModalOpen({ ForwardModal: true }) }} className="share-one ripple-effect-1">
                      <div className="ico"><i className="fa-light fa-share"></i></div>
                      <div className="name">
                         <label className="en">Forward</label>
@@ -93,7 +99,7 @@ function Home(props) {
                         <label className="hn">फॉरवर्ड</label>
                      </div>
                   </a>
-                  <a onClick={() => { setShareModal(true) }} className="share-all ripple-effect-1">
+                  <a href="#" onClick={(e) => { e.preventDefault(); setModalOpen({ ShareModal: true }) }} className="share-all ripple-effect-1">
                      <div className="ico"><i className="fa-light fa-share-alt"></i></div>
                      <div className="name">
                         <label className="en">Share</label>
@@ -101,7 +107,7 @@ function Home(props) {
                         <label className="hn">शेअर</label>
                      </div>
                   </a>
-                  <a href="#" className="install-app ripple-effect-1">
+                  <a href="#" onClick={(e) => { e.preventDefault(); }} className="install-app ripple-effect-1">
                      <div className="ico"><i className="fa-light fa-arrow-to-bottom"></i></div>
                      <div className="name">
                         <label className="en">Install</label>
@@ -113,7 +119,7 @@ function Home(props) {
             </div>
 
             <div className="home-actions">
-               <a onClick={() => { setCallModal(true) }} className="ripple-effect-1">
+               <a href="#" onClick={(e) => { e.preventDefault(); setModalOpen({ CallModal: true }) }} className="ripple-effect-1">
                   <span>
                      <i className="fa-light fa-phone"></i>
                      <span>
@@ -123,7 +129,7 @@ function Home(props) {
                      </span>
                   </span>
                </a>
-               <a onClick={() => { setEmailModal(true) }} className="ripple-effect-1">
+               <a href="#" onClick={(e) => { e.preventDefault(); setModalOpen({ EmailModal: true }) }} className="ripple-effect-1">
                   <span>
                      <i className="fa-light fa-envelope"></i>
                      <span>
@@ -133,7 +139,7 @@ function Home(props) {
                      </span>
                   </span>
                </a>
-               <a onClick={() => { setChatModal(true) }} className="ripple-effect-1">
+               <a href="#" onClick={(e) => { e.preventDefault(); setModalOpen({ ChatModal: true }) }} className="ripple-effect-1">
                   <span>
                      <i className="fa-light fa-comments-alt"></i>
                      <span>
@@ -143,7 +149,7 @@ function Home(props) {
                      </span>
                   </span>
                </a>
-               <a onClick={() => { setSmsModal(true) }} className="ripple-effect-1">
+               <a href="#" onClick={(e) => { e.preventDefault(); setModalOpen({ SmsModal: true }) }} className="ripple-effect-1">
                   <span>
                      <i className="fa-light fa-comment-alt-lines"></i>
                      <span>
@@ -153,7 +159,7 @@ function Home(props) {
                      </span>
                   </span>
                </a>
-               <a className="add-to-contact ripple-effect-1">
+               <a href="#" onClick={(e) => { e.preventDefault() }} className="add-to-contact ripple-effect-1">
                   <span>
                      <i className="fa-light fa-book"></i>
                      <span>
@@ -163,7 +169,7 @@ function Home(props) {
                      </span>
                   </span>
                </a>
-               <a className="google-map ripple-effect-1">
+               <a href="#" onClick={(e) => { e.preventDefault() }} className="google-map ripple-effect-1">
                   <span>
                      <i className="fa-light fa-map-marked-alt"></i>
                      <span>
