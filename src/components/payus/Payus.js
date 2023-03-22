@@ -9,7 +9,7 @@ import BhimLogo from "../../assets/images/bhim.png";
 function PayUs(props) {
    const setModalOpen = props.setModalOpen;
    return (
-      <div className="page" id="payus">
+      <div className="page payus">
          <div className="header">
             <div className="title">
                <label className="en">Pay Us</label>

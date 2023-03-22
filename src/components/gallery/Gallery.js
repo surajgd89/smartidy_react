@@ -1,3 +1,4 @@
+
 import './Gallery.scss';
 
 import ProfilePhotoDefault from '../../assets/images/gallery-default.jpg'
@@ -7,7 +8,7 @@ import ProfilePhotoDefault from '../../assets/images/gallery-default.jpg'
 function Gallery(props) {
    const setModalOpen = props.setModalOpen;
    return (
-      <div className="page" id="gallery">
+      <div className="page gallery">
          <div className="header">
             <div className="title">
                <label className="en">Gallery</label>

@@ -1,11 +1,11 @@
-
 import './About.scss';
+
 
 function About(props) {
    const setModalOpen = props.setModalOpen;
    return (
-      <div className="page" id="about">
-         <div className="header">
+      <div className="page about" >
+         <div className='header'>
             <div className="title">
                <label className="en">About Us</label>
                <label className="mr">माहिती</label>
@@ -305,7 +305,7 @@ function About(props) {
                                  <label className="mr">रविवार</label>
                                  <label className="hn">रविवार</label>
                               </td>
-                              <td colspan="2" className="text-right">Closed</td>
+                              <td colSpan="2" className="text-right">Closed</td>
                            </tr>
                         </tbody>
                      </table>

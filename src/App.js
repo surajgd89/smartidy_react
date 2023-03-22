@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { useEffect, useState } from 'react';
+import {  useState } from 'react';
 import './App.scss';
 
 import Home from './components/home/Home';
@@ -34,27 +34,30 @@ export default function App() {
     UpiPaymentModal: false,
   });
 
+  const [DataLang, setDataLang] = useState({
+    English: 'en',
+    Marathi: 'mr',
+    Hindi: 'hn'
+  })
 
 
 
   return (
     <>
-      <div className="wrapper" data-lang="en">
+      <div className="wrapper" data-lang={DataLang.English}>
         <div className="inner-body">
           <BrowserRouter>
             <Routes>
               <Route path="/" element={<Tabs />}>
-                <Route index element={<Home modal={setModalOpen} />} />
+                <Route index path="/" element={<Home modal={setModalOpen} />} />
                 <Route path="about" element={<About modal={setModalOpen} />} />
                 <Route path="gallery" element={<Gallery modal={setModalOpen} />} />
                 <Route path="payus" element={<PayUs modal={setModalOpen} />} />
               </Route>
             </Routes>
           </BrowserRouter>
+          {/* <div className="page-loader"></div> */}
         </div>
-
-
-
         {modalOpen.VisitModal && <VisitModal modal={setModalOpen} />}
         {modalOpen.ForwardModal && <ForwardModal modal={setModalOpen} />}
         {modalOpen.ShareModal && <ShareModal modal={setModalOpen} />}
@@ -63,9 +66,6 @@ export default function App() {
         {modalOpen.ChatModal && <ChatModal modal={setModalOpen} />}
         {modalOpen.SmsModal && <SmsModal modal={setModalOpen} />}
         {modalOpen.UpiPaymentModal && <UpiPaymentModal modal={setModalOpen} />}
-
-        <div className="page-loader"></div>
-
       </div>
     </>
   );
