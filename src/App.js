@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import {  useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import './App.scss';
 
 import Home from './components/home/Home';
@@ -20,7 +20,7 @@ import SmsModal from './layout/modals/SmsModal';
 import UpiPaymentModal from './layout/modals/UpiPaymentModal';
 
 
-export default function App() {
+function App() {
 
 
   let [modalOpen, setModalOpen] = useState({
@@ -38,8 +38,13 @@ export default function App() {
     English: 'en',
     Marathi: 'mr',
     Hindi: 'hn'
-  })
+  });
 
+
+
+  const profile = useRef();
+  const tabs = useRef();
+  const social = useRef();
 
 
   return (
@@ -48,8 +53,8 @@ export default function App() {
         <div className="inner-body">
           <BrowserRouter>
             <Routes>
-              <Route path="/" element={<Tabs />}>
-                <Route index path="/" element={<Home modal={setModalOpen} />} />
+              <Route path="/" element={<Tabs refElement={tabs} />}>
+                <Route index path="/" element={<Home modal={setModalOpen} refElement={{ profile, social, tabs }} />} />
                 <Route path="about" element={<About modal={setModalOpen} />} />
                 <Route path="gallery" element={<Gallery modal={setModalOpen} />} />
                 <Route path="payus" element={<PayUs modal={setModalOpen} />} />
@@ -72,4 +77,4 @@ export default function App() {
 }
 
 
-
+export default App;

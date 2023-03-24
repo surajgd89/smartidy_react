@@ -1,22 +1,46 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import ProfilePhotoDefault from '../../assets/images/profile-photo-default.jpg';
 import BusinessLogoDefault from '../../assets/images/business-logo-default.jpg';
 import './Home.scss';
 
-function Home(props) {
-   let setModalOpen = props.modal;
+function Home({ modal, refElement }) {
 
-   let [Profile, setProfile] = useState({ Business: false, Individual: true });
-   let [ProfilePicType, setProfilePicType] = useState(true);
+   let setModalOpen = modal;
+   let { profile, social, tabs } = refElement;
+
+
+   const [Profile, setProfile] = useState({ Business: false, Individual: true });
+   const [ProfilePicType, setProfilePicType] = useState(true);
+   const [HomeActionStyle, setHomeActionStyle] = useState();
+
+   const HomeActionsCalc = () => {
+      let profileHT = profile.current.offsetHeight;
+      let socialHT = social.current.offsetHeight;
+      let tabsHT = tabs.current.offsetHeight;
+      if (socialHT == undefined) {
+         socialHT = 0;
+      }
+      return { minHeight: `calc(100vh - ${profileHT + tabsHT + socialHT}px)` }
+   }
+
+
+   const handleClick = (e) => {
+      e.preventDefault();
+      setHomeActionStyle(HomeActionsCalc)
+   }
+
+   useEffect(() => {
+      setHomeActionStyle(HomeActionsCalc)
+   }, [Profile])
 
 
 
 
    return (
       <div className="page home">
-         <div className="profile" >
+         <div className="profile" ref={profile}>
             <div className="top">
-               <a href="#" onClick={(e) => { e.preventDefault(); setProfile({ Business: true }) }} className={`ripple-effect-1 ${Profile.Business && 'active'}`}>
+               <a href="#" onClick={(e) => { setProfile({ Business: true }); handleClick(e) }} className={`ripple-effect-1 ${Profile.Business && 'active'}`}>
                   <i className="fa-light fa-building"></i>
                   <span>
                      <label className="en">Business</label>
@@ -24,7 +48,7 @@ function Home(props) {
                      <label className="hn">व्यवसाय</label>
                   </span>
                </a>
-               <a href="#" onClick={(e) => { e.preventDefault(); setProfile({ Individual: true }) }} className={`ripple-effect-1 ${Profile.Individual && 'active'}`}>
+               <a href="#" onClick={(e) => { setProfile({ Individual: true }); handleClick(e) }} className={`ripple-effect-1 ${Profile.Individual && 'active'}`}>
                   <i className="fa-light fa-user-tie"></i>
                   <span>
                      <label className="en">Individual</label>
@@ -120,8 +144,8 @@ function Home(props) {
                </a>
             </div>
 
-         </div >
-         <div className="home-actions">
+         </div>
+         <div className="home-actions" style={HomeActionStyle}>
             <a href="#" onClick={(e) => { e.preventDefault(); setModalOpen({ CallModal: true }) }} className="ripple-effect-1">
                <span>
                   <i className="fa-light fa-phone"></i>
@@ -183,9 +207,7 @@ function Home(props) {
                </span>
             </a>
          </div>
-
-
-         <div className="social">
+         <div className="social" ref={social}>
             <a href="https://www.facebook.com/enter_your_id" className="facebook">
                <i className="fab fa-facebook-f"></i>
                <span>Facebook</span>
@@ -211,7 +233,7 @@ function Home(props) {
                <span>Catalogue</span>
             </a>
          </div>
-      </div>
+      </div >
    )
 
 }
