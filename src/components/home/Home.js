@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import ProfilePhotoDefault from '../../assets/images/profile-photo-default.jpg';
 import BusinessLogoDefault from '../../assets/images/business-logo-default.jpg';
 import './Home.scss';
+import moment from 'moment/moment';
+
 
 function Home({ modal, refElement }) {
 
@@ -10,6 +12,7 @@ function Home({ modal, refElement }) {
 
 
    const [Profile, setProfile] = useState({ Business: false, Individual: true });
+   const [EstObject, setEstObject] = useState();
    const [ProfilePicType, setProfilePicType] = useState(true);
    const [HomeActionStyle, setHomeActionStyle] = useState();
 
@@ -23,6 +26,15 @@ function Home({ modal, refElement }) {
       return { minHeight: `calc(100vh - ${profileHT + tabsHT + socialHT}px)` }
    }
 
+   const ServiceYrCalc = () => {
+      let EstDate = '10-Nov-2018';
+      let Now = moment(new Date());
+      let EstYear = moment(EstDate).format('yyyy');
+      let RemYears = Now.diff(EstDate, 'years');
+      let RemMonths = Now.diff(EstDate, 'months') % 12;
+      return { EstYear, RemYears, RemMonths }
+   }
+
 
    const handleClick = (e) => {
       e.preventDefault();
@@ -30,8 +42,10 @@ function Home({ modal, refElement }) {
    }
 
    useEffect(() => {
-      setHomeActionStyle(HomeActionsCalc)
+      setHomeActionStyle(HomeActionsCalc);
+      setEstObject(ServiceYrCalc)
    }, [Profile])
+
 
 
 
@@ -93,13 +107,13 @@ function Home({ modal, refElement }) {
                         <label className="en">Established in</label>
                         <label className="mr">स्थापना</label>
                         <label className="hn">स्थापना</label>
-                        &nbsp;<span id="estYr" data-est-date="01-01-2021"></span>&nbsp;&nbsp;
-                        <span className="year-month">(<span id="passedYears"></span>&nbsp;
+                        &nbsp;<span id="estYr">{EstObject.EstYear}</span>&nbsp;&nbsp;
+                        <span className="year-month">(<span id="passedYears">{EstObject.RemYears}</span>&nbsp;
                            <label className="en">years</label>
                            <label className="mr">वर्षे</label>
                            <label className="hn">वर्षे</label>
                            &nbsp;
-                           <span id="passedMonths"></span>&nbsp;
+                           <span id="passedMonths">{EstObject.RemMonths}</span>&nbsp;
                            <label className="en">months</label>
                            <label className="mr">महिने</label>
                            <label className="hn">महिने</label>)

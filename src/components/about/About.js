@@ -1,8 +1,127 @@
+import { useState, useEffect } from "react";
 import './About.scss';
 
 
-function About(props) {
-   const setModalOpen = props.setModalOpen;
+function About({ modal }) {
+   const setModalOpen = modal;
+
+   const [IsVisible, setIsVisible] = useState(false);
+   const updateBreakPoint = () => {
+      let BreakPoint = window.innerWidth;
+      (BreakPoint < 575.98) ? setIsVisible(true) : setIsVisible(false)
+   }
+
+   useEffect(() => {
+      updateBreakPoint()
+      window.addEventListener('resize', updateBreakPoint);
+   }, [])
+
+   function BusinessName_Label() {
+      return (
+         <div className="lbl" >
+            <label className="en">Business Name</label>
+            <label className="mr">व्यवसायाचे नाव</label>
+            <label className="hn">व्यवसाय का नाम</label>
+         </div>
+      )
+   }
+   function Designation_Label() {
+      return (
+         <div className="lbl" >
+            <label className="en">Designation</label>
+            <label className="mr">पद</label>
+            <label className="hn">पद</label>
+         </div>
+      )
+   }
+   function AboutBusiness_Label() {
+      return (
+         <div className="lbl">
+            <label className="en">About Business</label>
+            <label className="mr">व्यवसायाबद्दल</label>
+            <label className="hn">व्यवसाय के बारे में</label>
+         </div>
+      )
+   }
+   function Services_Label() {
+      return (
+         <div className="lbl">
+            <label className="en">Services</label>
+            <label className="mr">सेवा</label>
+            <label className="hn">सेवाएँ</label>
+         </div>
+      )
+   }
+   function EFiles_Label() {
+      return (
+         <div className="lbl">
+            <label className="en">E-Files</label>
+            <label className="mr">इ-फाईल</label>
+            <label className="hn">इ-फाईल</label>
+         </div>
+      )
+   }
+   function Address_Label() {
+      return (
+         <div className="lbl">
+            <label className="en">Address</label>
+            <label className="mr">पत्ता</label>
+            <label className="hn">पता</label>
+         </div>
+      )
+   }
+   function Gstin_Label() {
+      return (
+         <div className="lbl">GSTIN</div>
+      )
+   }
+   function Msme_Label() {
+      return (
+         <div className="lbl">MSME</div>
+      )
+   }
+   function Email_Label() {
+      return (
+         <div className="lbl">
+            <label className="en">Email</label>
+            <label className="mr">ई-मेल</label>
+            <label className="hn">ई-मेल</label>
+         </div>
+      )
+   }
+   function Call_Label() {
+      return (
+         <div className="lbl">
+            <label className="en">Call</label>
+            <label className="mr">कॉल</label>
+            <label className="hn">कॉल</label>
+         </div>
+      )
+   }
+   function Website_Label() {
+      return (
+         <div className="lbl">
+            <label className="en">Website</label>
+            <label className="mr">संकेतस्थळ</label>
+            <label className="hn">वेबसाइट</label>
+         </div>
+      )
+   }
+   function SmartIDyUrl_Label() {
+      return (
+         <div className="lbl">SmartIDy URL</div>
+      )
+   }
+   function BusinessHrs_Label() {
+      return (
+         <div className="lbl">
+            <label className="en">Business Hours</label>
+            <label className="mr">व्यवसायाची वेळ</label>
+            <label className="hn">व्यवसाय का समय</label>
+         </div>
+      )
+   }
+
    return (
       <div className="page about" >
          <div className='header'>
@@ -21,39 +140,30 @@ function About(props) {
             <div className="data-row">
                <div className="ico">
                   <i className="fa-light fa-building"></i>
+                  {IsVisible && <BusinessName_Label />}
                </div>
                <div className="data">
-                  <div className="lbl">
-                     <label className="en">Business Name</label>
-                     <label className="mr">व्यवसायाचे नाव</label>
-                     <label className="hn">व्यवसाय का नाम</label>
-                  </div>
+                  {!IsVisible && <BusinessName_Label />}
                   <div className="val business-name">ABC Ltd</div>
                </div>
             </div>
             <div className="data-row">
                <div className="ico">
                   <i className="fa-light fa-user-tie"></i>
+                  {IsVisible && <Designation_Label />}
                </div>
                <div className="data">
-                  <div className="lbl">
-                     <label className="en">Designation</label>
-                     <label className="mr">पद</label>
-                     <label className="hn">पद</label>
-                  </div>
+                  {!IsVisible && <Designation_Label />}
                   <div className="val">Founder</div>
                </div>
             </div>
             <div className="data-row">
                <div className="ico">
                   <i className="fa-light fa-briefcase"></i>
+                  {IsVisible && <AboutBusiness_Label />}
                </div>
                <div className="data">
-                  <div className="lbl">
-                     <label className="en">About Business</label>
-                     <label className="mr">व्यवसायाबद्दल</label>
-                     <label className="hn">व्यवसाय के बारे में</label>
-                  </div>
+                  {!IsVisible && <AboutBusiness_Label />}
                   <div className="val">
                      <p>
                         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptate quaerat soluta
@@ -67,13 +177,10 @@ function About(props) {
             <div className="data-row">
                <div className="ico">
                   <i className="fa-light fa-paper-plane"></i>
+                  {IsVisible && <Services_Label />}
                </div>
                <div className="data">
-                  <div className="lbl">
-                     <label className="en">Services</label>
-                     <label className="mr">सेवा</label>
-                     <label className="hn">सेवाएँ</label>
-                  </div>
+                  {!IsVisible && <Services_Label />}
                   <div className="val">
                      <ul className="service-list">
                         <li>Service 1</li>
@@ -89,13 +196,10 @@ function About(props) {
             <div className="data-row">
                <div className="ico">
                   <i className="fa-light fa-file-download"></i>
+                  {IsVisible && <EFiles_Label />}
                </div>
                <div className="data">
-                  <div className="lbl">
-                     <label className="en">E-Files</label>
-                     <label className="mr">इ-फाईल</label>
-                     <label className="hn">इ-फाईल</label>
-                  </div>
+                  {!IsVisible && <EFiles_Label />}
                   <div className="val">
                      <div className="efiles-sec">
                         <a href="#" className="e-file ripple-effect-2" download>
@@ -125,13 +229,10 @@ function About(props) {
             <div className="data-row">
                <div className="ico">
                   <i className="fa-light fa-map-marked-alt"></i>
+                  {IsVisible && <Address_Label />}
                </div>
                <div className="data">
-                  <div className="lbl">
-                     <label className="en">Address</label>
-                     <label className="mr">पत्ता</label>
-                     <label className="hn">पता</label>
-                  </div>
+                  {!IsVisible && <Address_Label />}
                   <div className="val">Flat No. 100, Building No. A-10, 3rd Floor, Sector 10, <br /> Fort,
                      Navi Mumbai - 400 001</div>
                </div>
@@ -139,9 +240,10 @@ function About(props) {
             <div className="data-row">
                <div className="ico">
                   <i className="fa-light fa-file-certificate"></i>
+                  {IsVisible && <Gstin_Label />}
                </div>
                <div className="data">
-                  <div className="lbl">GSTIN</div>
+                  {!IsVisible && <Gstin_Label />}
                   <div className="val"><span id="business-gstin">123456789ABCDEFG</span> <i
                      className="fa-light fa-clone copy-to-clipboard" data-clipboard-target="#business-gstin"></i>
                   </div>
@@ -150,9 +252,11 @@ function About(props) {
             <div className="data-row">
                <div className="ico">
                   <i className="fa-light fa-file-certificate"></i>
+                  {IsVisible && <Msme_Label />}
                </div>
                <div className="data">
-                  <div className="lbl">MSME</div>
+                  {!IsVisible && <Msme_Label />}
+
                   <div className="val"><span id="business-msme">123456789ABCDEFG</span> <i
                      className="fa-light fa-clone copy-to-clipboard" data-clipboard-target="#business-msme"></i>
                   </div>
@@ -161,13 +265,10 @@ function About(props) {
             <div className="data-row">
                <div className="ico">
                   <i className="fa-light fa-envelope"></i>
+                  {IsVisible && <Email_Label />}
                </div>
                <div className="data">
-                  <div className="lbl">
-                     <label className="en">Email</label>
-                     <label className="mr">ई-मेल</label>
-                     <label className="hn">ई-मेल</label>
-                  </div>
+                  {!IsVisible && <Email_Label />}
                   <div className="val"><a href="mailto:business@gmail.com" id="copy-business-email"
                      className="link">business@gmail.com</a><i className="fa-light fa-clone copy-to-clipboard"
                         data-clipboard-target="#copy-business-email"></i>
@@ -177,13 +278,11 @@ function About(props) {
             <div className="data-row">
                <div className="ico">
                   <i className="fa-light fa-phone-alt"></i>
+                  {IsVisible && <Call_Label />}
                </div>
                <div className="data">
-                  <div className="lbl">
-                     <label className="en">Call</label>
-                     <label className="mr">कॉल</label>
-                     <label className="hn">कॉल</label>
-                  </div>
+                  {!IsVisible && <Call_Label />}
+
                   <div className="val"><span id="copy-business-number">+91 9876543210</span><i
                      className="fa-light fa-clone copy-to-clipboard"
                      data-clipboard-target="#copy-business-number"></i>
@@ -193,13 +292,11 @@ function About(props) {
             <div className="data-row">
                <div className="ico">
                   <i className="fa-light fa-globe"></i>
+                  {IsVisible && <Website_Label />}
                </div>
                <div className="data">
-                  <div className="lbl">
-                     <label className="en">Website</label>
-                     <label className="mr">संकेतस्थळ</label>
-                     <label className="hn">वेबसाइट</label>
-                  </div>
+                  {!IsVisible && <Website_Label />}
+
                   <div className="val"><a href="https://www.websitename.com/"
                      id="copy-business-website" className="link">www.websiteName.com</a><i
                         className="fa-light fa-clone copy-to-clipboard"
@@ -210,9 +307,11 @@ function About(props) {
             <div className="data-row">
                <div className="ico">
                   <i className="fa-light fa-link"></i>
+                  {IsVisible && <SmartIDyUrl_Label />}
                </div>
                <div className="data">
-                  <div className="lbl">SmartIDy URL</div>
+
+                  {!IsVisible && <SmartIDyUrl_Label />}
                   <div className="val">
                      <a href="#" id="copy-smartidy-url"
                         className="link smartidy-url"></a><i className="fa-light fa-clone copy-to-clipboard"
@@ -223,13 +322,11 @@ function About(props) {
             <div className="data-row">
                <div className="ico">
                   <i className="fa-light fa-clock"></i>
+                  {IsVisible && <BusinessHrs_Label />}
                </div>
                <div className="data">
-                  <div className="lbl">
-                     <label className="en">Business Hours</label>
-                     <label className="mr">व्यवसायाची वेळ</label>
-                     <label className="hn">व्यवसाय का समय</label>
-                  </div>
+                  {!IsVisible && <BusinessHrs_Label />}
+
                   <div className="val">
                      <table className="buss-hrs-tbl">
                         <tbody>

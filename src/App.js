@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { useState, useEffect, useRef } from 'react';
+import { useState, useRef } from 'react';
 import './App.scss';
 
 import Home from './components/home/Home';
@@ -41,10 +41,12 @@ function App() {
   });
 
 
-
   const profile = useRef();
   const tabs = useRef();
   const social = useRef();
+
+
+
 
 
   return (
