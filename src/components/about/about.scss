@@ -1,14 +1,21 @@
+@mixin mobile {
+    @media (max-width: 575.98px) {
+        @content;
+    }
+}
+
 //ABOUT
+
 .about {
     background-color: #ffffff;
     padding: 30px;
 
-    @media (max-width: 575.98px) {
+    @include mobile {
         padding: 0;
     }
 
     .header {
-        @media (max-width: 575.98px) {
+        @include mobile {
             margin-bottom: 5px;
             padding: 20px;
             padding-bottom: 0;
@@ -17,15 +24,13 @@
 
     .content {
         .data-row {
-            display: flex;
-            align-items: flex-start;
             margin-bottom: 30px;
 
             &:last-child {
                 margin-bottom: 0;
             }
 
-            @media (max-width: 575.98px) {
+            @include mobile {
                 flex-direction: column;
                 align-items: stretch;
                 margin-bottom: 0;
@@ -37,12 +42,13 @@
                 }
             }
 
-            .ico {
+            .title {
                 color: var(--primary);
-                margin-right: 20px;
-                min-width: 30px;
+                display: flex;
+                align-items: flex-start;
+                margin-bottom: 8px;
 
-                @media (max-width: 575.98px) {
+                @include mobile {
                     margin-right: 0;
                     margin-bottom: 10px;
                     display: inline-flex;
@@ -51,40 +57,40 @@
 
                 i {
                     font-size: 20px;
+                    min-width: 35px;
+
+                    @include mobile {
+                        min-width: 32px;
+                        font-size: 18px;
+                    }
                 }
 
                 .lbl {
-                    @media (max-width: 575.98px) {
+                    color: var(--secondary-light);
+
+                    @include mobile {
                         margin-right: 0;
-                        margin-left: 15px;
                         font-size: 12px;
                         font-weight: var(--fw-medium);
-                        color: var(--secondary-light);
+                        color: var(--primary);
                     }
                 }
             }
 
             .data {
-                flex-grow: 1;
-                .lbl {
-                    margin-bottom: 7px;
-                    font-size: 14px;
-                    font-weight: var(--fw-regular);
-                    color: var(--secondary-light);
-                    @media (max-width: 575.98px) {
-                        font-size: 12px;
-                    }
-                }
                 .val {
                     font-size: 16px;
                     font-weight: var(--fw-regular);
+                    padding-left: 35px;
 
-                    @media (max-width: 575.98px) {
+                    @include mobile {
                         font-size: 14px;
+                        padding-left: 0;
                     }
 
                     p {
-                        margin-bottom: 8px;
+                        margin-bottom: 10px;
+                        margin-top: 0;
 
                         &:last-child {
                             margin-bottom: 0;
@@ -95,7 +101,7 @@
                         font-size: 22px;
                         font-weight: var(--fw-semi-bold);
 
-                        @media (max-width: 575.98px) {
+                        @include mobile {
                             font-size: 20px;
                         }
                     }
@@ -118,7 +124,7 @@
                         padding: 0;
                         padding-left: 20px;
 
-                        @media (max-width: 575.98px) {
+                        @include mobile {
                             padding-left: 15px;
                         }
 
@@ -130,7 +136,7 @@
                     .efiles-sec {
                         margin-top: 10px;
 
-                        @media (max-width: 575.98px) {
+                        @include mobile {
                             margin-top: 5px;
                         }
                         .e-file {
@@ -151,7 +157,7 @@
                                 margin-bottom: 0;
                             }
 
-                            @media (max-width: 575.98px) {
+                            @include mobile {
                                 margin-bottom: 10px;
                                 min-height: 50px;
                                 padding: 10px 15px;
@@ -186,41 +192,46 @@
                         }
                     }
 
-                    .buss-hrs-tbl {
+                    .buss-hrs-sec {
                         margin-top: 15px;
                         width: 100%;
                         border: 1px solid var(--border);
                         max-width: 350px;
+                        padding: 0;
 
-                        @media (max-width: 575.98px) {
+                        @include mobile {
                             margin-top: 5px;
                             max-width: 100%;
                         }
 
-                        tr {
-                            &.active {
-                                td {
-                                    color: var(--primary);
-                                }
+                        li {
+                            border-bottom: 1px solid var(--border);
+                            padding: 2px 10px;
+                            font-size: 14px;
+                            color: var(--secondary);
+                            height: 50px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: space-between;
+
+                            @include mobile {
+                                padding: 4px 6px;
+                                font-size: 12px;
+                                height: 40px;
                             }
 
-                            td {
-                                padding: 2px 10px;
-                                font-size: 14px;
-                                color: var(--secondary);
-                                border-bottom: 1px solid var(--border);
-                                height: 50px;
+                            &.active {
+                                color: var(--primary);
+                            }
 
-                                @media (max-width: 575.98px) {
-                                    padding: 4px 6px;
-                                    font-size: 12px;
+                            .time {
+                                span {
+                                    margin-left: 15px;
                                 }
                             }
 
                             &:last-child {
-                                td {
-                                    border-bottom: 0;
-                                }
+                                border-bottom: 0;
                             }
                         }
                     }

@@ -1,8 +1,13 @@
+@mixin mobile {
+    @media (max-width: 575.98px) {
+        @content;
+    }
+}
 //PAY-US
 .payus {
     background-color: #ffffff;
     padding: 30px;
-    @media (max-width: 575.98px) {
+    @include mobile {
         padding: 20px;
     }
 
@@ -10,7 +15,7 @@
         .upi-sec {
             margin-bottom: 30px;
 
-            @media (max-width: 575.98px) {
+            @include mobile {
                 margin-bottom: 20px;
             }
 
@@ -27,7 +32,7 @@
                 text-decoration: none;
                 outline: 0;
                 transition: all 300ms;
-                @media (max-width: 575.98px) {
+                @include mobile {
                     min-height: 90px;
                     padding: 15px;
                 }
@@ -46,7 +51,7 @@
                     font-weight: var(--fw-semi-bold);
                     color: var(--secondary);
 
-                    @media (max-width: 575.98px) {
+                    @include mobile {
                         font-size: 20px;
                     }
                 }
@@ -76,7 +81,7 @@
                 font-weight: var(--fw-medium);
                 text-align: center;
                 color: var(--primary);
-                @media (max-width: 575.98px) {
+                @include mobile {
                     font-size: 14px;
                     margin-top: 8px;
                 }
@@ -121,7 +126,7 @@
         .pg-sec {
             margin-bottom: 30px;
 
-            @media (max-width: 575.98px) {
+            @include mobile {
                 margin-bottom: 20px;
             }
             .pg-btn {
@@ -138,7 +143,7 @@
                 text-decoration: none;
                 outline: 0;
 
-                @media (max-width: 575.98px) {
+                @include mobile {
                     min-height: 90px;
                     padding: 15px;
                 }
@@ -157,7 +162,7 @@
                     font-weight: var(--fw-semi-bold);
                     color: var(--secondary);
 
-                    @media (max-width: 575.98px) {
+                    @include mobile {
                         font-size: 20px;
                     }
                 }
@@ -216,7 +221,7 @@
         .account-sec {
             margin-bottom: 30px;
 
-            @media (max-width: 575.98px) {
+            @include mobile {
                 margin-bottom: 20px;
             }
 
@@ -229,7 +234,7 @@
                 border: 1px solid var(--border);
                 border-radius: var(--radius);
 
-                @media (max-width: 575.98px) {
+                @include mobile {
                     padding: 15px;
                 }
 
@@ -244,7 +249,7 @@
                         margin-bottom: 0;
                     }
 
-                    @media (max-width: 575.98px) {
+                    @include mobile {
                         margin-bottom: 0;
                         padding-top: 10px;
                         padding-bottom: 10px;
@@ -266,7 +271,7 @@
                         font-weight: var(--fw-medium);
                         color: var(--secondary-light);
 
-                        @media (max-width: 575.98px) {
+                        @include mobile {
                             font-size: 12px;
                             margin-bottom: 0;
                         }
@@ -275,7 +280,7 @@
                         font-size: 16px;
                         font-weight: var(--fw-medium);
 
-                        @media (max-width: 575.98px) {
+                        @include mobile {
                             font-size: 14px;
                         }
 
@@ -295,7 +300,7 @@
                     background-color: var(--primary);
                     border-bottom-left-radius: 10px;
                     border-top-right-radius: 6px;
-                    @media (max-width: 575.98px) {
+                    @include mobile {
                         padding: 10px;
                         border-top-right-radius: 0;
                     }

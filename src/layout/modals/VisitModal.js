@@ -18,7 +18,7 @@ function VisitModal(props) {
             </div>
             <div className="modal-body">
                <div className="item-list">
-                  <a href="http://www.shreeshadigital.com/" className="item-row ripple-effect-2">
+                  <a href="http://www.shreeshadigital.com/" className="item-row ">
                      <span className="lbl">
                         <label className="en">Website</label>
                         <label className="mr">संकेतस्थळ</label>
@@ -26,7 +26,7 @@ function VisitModal(props) {
                      </span>
                      <span className="val">www.businessname.com</span>
                   </a>
-                  <a href="http://www.shreeshadigital.com/" className="item-row ripple-effect-2">
+                  <a href="http://www.shreeshadigital.com/" className="item-row ">
                      <span className="lbl">
                         <label className="en">ePortfolio</label>
                         <label className="mr">ePortfolio</label>

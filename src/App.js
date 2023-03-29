@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import './App.scss';
 
 import Home from './components/home/Home';
@@ -44,9 +44,12 @@ function App() {
   const profile = useRef();
   const tabs = useRef();
   const social = useRef();
+  const gstin_no = useRef();
 
 
+  useEffect(() => {
 
+  })
 
 
   return (
@@ -57,7 +60,7 @@ function App() {
             <Routes>
               <Route path="/" element={<Tabs refElement={tabs} />}>
                 <Route index path="/" element={<Home modal={setModalOpen} refElement={{ profile, social, tabs }} />} />
-                <Route path="about" element={<About modal={setModalOpen} />} />
+                <Route path="about" element={<About modal={setModalOpen} refElement={{ gstin_no }} />} />
                 <Route path="gallery" element={<Gallery modal={setModalOpen} />} />
                 <Route path="payus" element={<PayUs modal={setModalOpen} />} />
               </Route>

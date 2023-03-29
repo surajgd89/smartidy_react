@@ -33,7 +33,7 @@ function Tabs(props) {
             left: IsActive.offsetLeft,
         });
 
-        
+
     }, []);
 
     return (
@@ -45,7 +45,7 @@ function Tabs(props) {
             >
                 <NavLink
                     to="/"
-                    className={`ripple-effect-1`}
+
                     onClick={handleClick}
                 >
                     <span>
@@ -59,7 +59,7 @@ function Tabs(props) {
                 </NavLink>
                 <NavLink
                     to="/about"
-                    className={`ripple-effect-1`}
+
                     onClick={handleClick}
                 >
                     <span>
@@ -73,7 +73,7 @@ function Tabs(props) {
                 </NavLink>
                 <NavLink
                     to="/gallery"
-                    className={`ripple-effect-1`}
+
                     onClick={handleClick}
                 >
                     <span>
@@ -87,7 +87,7 @@ function Tabs(props) {
                 </NavLink>
                 <NavLink
                     to="/payus"
-                    className={`ripple-effect-1`}
+
                     onClick={handleClick}
                 >
                     <span>

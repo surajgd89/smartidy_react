@@ -1,3 +1,8 @@
+@mixin mobile {
+    @media (max-width: 575.98px) {
+        @content;
+    }
+}
 //NAVIGATION TABS
 .tabs {
     display: flex;
@@ -36,7 +41,7 @@
         max-width: 100%;
         min-height: 80px;
 
-        @media (max-width: 575.98px) {
+        @include mobile {
             min-height: 65px;
         }
 
@@ -49,7 +54,7 @@
             > i {
                 font-size: 26px;
                 margin-bottom: 5px;
-                @media (max-width: 575.98px) {
+                @include mobile {
                     font-size: 20px;
                     margin-bottom: 5px;
                 }

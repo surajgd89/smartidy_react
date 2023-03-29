@@ -1,8 +1,6 @@
 
 import './Gallery.scss';
-
-import ProfilePhotoDefault from '../../assets/images/gallery-default.jpg'
-
+import GalleryImage from '../../assets/images/gallery-default.jpg';
 
 
 function Gallery(props) {
@@ -16,7 +14,7 @@ function Gallery(props) {
                <label className="hn">गॅलरी</label>
             </div>
             <div className="action">
-               <a onClick={() => { setModalOpen({ 'ShareModal': true }) }} className="share-all ripple-effect-1">
+               <a onClick={() => { setModalOpen({ 'ShareModal': true }) }} className="share-all ">
                   <i className="fa-light fa-share-alt"></i>
                </a>
             </div>
@@ -35,23 +33,23 @@ function Gallery(props) {
                </div>
                <div className="images-area ">
                   <div className="images-list">
-                     <a className="img-item" href={ProfilePhotoDefault}>
-                        <img src={ProfilePhotoDefault} />
+                     <a className="img-item" href={GalleryImage}>
+                        <img src={GalleryImage} />
                      </a>
-                     <a className="img-item" href={ProfilePhotoDefault}>
-                        <img src={ProfilePhotoDefault} />
+                     <a className="img-item" href={GalleryImage}>
+                        <img src={GalleryImage} />
                      </a>
-                     <a className="img-item" href={ProfilePhotoDefault}>
-                        <img src={ProfilePhotoDefault} />
+                     <a className="img-item" href={GalleryImage}>
+                        <img src={GalleryImage} />
                      </a>
-                     <a className="img-item" href={ProfilePhotoDefault}>
-                        <img src={ProfilePhotoDefault} />
+                     <a className="img-item" href={GalleryImage}>
+                        <img src={GalleryImage} />
                      </a>
-                     <a className="img-item" href={ProfilePhotoDefault}>
-                        <img src={ProfilePhotoDefault} />
+                     <a className="img-item" href={GalleryImage}>
+                        <img src={GalleryImage} />
                      </a>
-                     <a className="img-item" href={ProfilePhotoDefault}>
-                        <img src={ProfilePhotoDefault} />
+                     <a className="img-item" href={GalleryImage}>
+                        <img src={GalleryImage} />
                      </a>
                   </div>
                   <div className="info-message">
@@ -77,19 +75,19 @@ function Gallery(props) {
                </div>
                <div className="videos-area">
                   <div className="videos-list">
-                     <a href="#" className="video-item ripple-effect-2">
+                     <a href="#" className="video-item ">
                         <span className="ico"><i className="fa-light fa-video"></i></span>
                         <span className="name">Video 1 </span>
                      </a>
-                     <a href="#" className="video-item ripple-effect-2">
+                     <a href="#" className="video-item ">
                         <span className="ico"><i className="fa-light fa-video"></i></span>
                         <span className="name">Video 2 </span>
                      </a>
-                     <a href="#" className="video-item ripple-effect-2">
+                     <a href="#" className="video-item ">
                         <span className="ico"><i className="fa-light fa-video"></i></span>
                         <span className="name">Video 3 </span>
                      </a>
-                     <a href="#" className="video-item ripple-effect-2">
+                     <a href="#" className="video-item ">
                         <span className="ico"><i className="fa-light fa-video"></i></span>
                         <span className="name">Video 4 </span>
                      </a>

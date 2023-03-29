@@ -26,7 +26,7 @@ function UpiPaymentModal(props) {
                            required />
                      </div>
                      <div className="action-sec">
-                        <a href="#" id="paylink" className="act-btn ripple-effect-1">
+                        <a href="#" id="paylink" className="act-btn ">
                            <label className="en">Pay</label>
                            <label className="mr">देय द्या</label>
                            <label className="hn">भुगतान करें</label>

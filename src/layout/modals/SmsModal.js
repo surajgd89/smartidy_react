@@ -16,7 +16,7 @@ function SmsModal(props) {
             </div>
             <div className="modal-body">
                <div className="item-list">
-                  <a href="sms:+911234567890" className="item-row ripple-effect-2">
+                  <a href="sms:+911234567890" className="item-row ">
                      <span className="lbl">
                         <label className="en">Individual</label>
                         <label className="mr">वैयक्तिक</label>
@@ -24,7 +24,7 @@ function SmsModal(props) {
                      </span>
                      <span className="val">1234567890</span>
                   </a>
-                  <a href="sms:+919876543210" className="item-row ripple-effect-2">
+                  <a href="sms:+919876543210" className="item-row ">
                      <span className="lbl">
                         <label className="en">Business</label>
                         <label className="mr">व्यवसाय</label>

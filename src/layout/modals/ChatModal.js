@@ -16,7 +16,7 @@ function ChatModal(props) {
             </div>
             <div className="modal-body">
                <div className="item-list">
-                  <a href="https://wa.me/911234567890" className="item-row ripple-effect-2">
+                  <a href="https://wa.me/911234567890" className="item-row ">
                      <span className="lbl">
                         <label className="en">Individual WhatsApp</label>
                         <label className="mr">वैयक्तिक WhatsApp</label>
@@ -24,7 +24,7 @@ function ChatModal(props) {
                      </span>
                      <span className="val">1234567890</span>
                   </a>
-                  <a href="https://t.me/surajpatil89" className="item-row ripple-effect-2">
+                  <a href="https://t.me/surajpatil89" className="item-row ">
                      <span className="lbl">
                         <label className="en">Individual Telegram</label>
                         <label className="mr">वैयक्तिक Telegram</label>
@@ -32,7 +32,7 @@ function ChatModal(props) {
                      </span>
                      <span className="val">@your_telegram_id</span>
                   </a>
-                  <a href="https://wa.me/919876543210" className="item-row ripple-effect-2">
+                  <a href="https://wa.me/919876543210" className="item-row ">
                      <span className="lbl">
                         <label className="en">Business WhatsApp</label>
                         <label className="mr">व्यवसाय WhatsApp</label>

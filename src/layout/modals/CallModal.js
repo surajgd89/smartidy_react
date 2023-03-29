@@ -17,7 +17,7 @@ function CallModal(props) {
             </div>
             <div className="modal-body">
                <div className="item-list numbers">
-                  <a href="tel:+911234567890" className="item-row add-vcard ripple-effect-2">
+                  <a href="tel:+911234567890" className="item-row add-vcard ">
                      <span className="lbl">
                         <label className="en">Individual</label>
                         <label className="mr">वैयक्तिक</label>
@@ -25,7 +25,7 @@ function CallModal(props) {
                      </span>
                      <span className="val">1234567890</span>
                   </a>
-                  <a href="tel:+919876543210" className="item-row ripple-effect-2">
+                  <a href="tel:+919876543210" className="item-row ">
                      <span className="lbl">
                         <label className="en">Business</label>
                         <label className="mr">व्यवसाय</label>

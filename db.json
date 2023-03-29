@@ -1,0 +1,185 @@
+{
+    "user": [
+        {
+            "id": 1,
+            "config": {
+                "smartIdyURL": null,
+                "activeProfile": "business", //individual
+                "profilePicType": "circle" //square
+            },
+            "individual": {
+                "flag": "Individual",
+                "name": "Suraj Patil",
+                "profilePicSrc": "./src/assets/images/profile-photo-default.jpg",
+                "experties": "Front-End Developer",
+
+                "call": "9594415153",
+                "email": "suraj.gd89@gmail.com",
+                "sms": "9594415153",
+
+                "social": {
+                    "facebook": "https://www.facebook.com/suraj.gd89",
+                    "twitter": "https://twitter.com/suraj_patil89",
+                    "linkedin": "https://www.linkedin.com/in/surajpatil89/",
+                    "instagram": "https://www.instagram.com/i_am_suraj.patil/",
+                    "youtube": null,
+                    "catalogue": null
+                },
+
+                "chat": [
+                    {
+                        "title": "WhatsApp",
+                        "value": "9594415153"
+                    },
+                    {
+                        "title": "Telegram",
+                        "value": "@surajpatil89"
+                    }
+                ]
+            },
+            "business": {
+                "flag": "Business",
+                "name": "Shreesha Digital",
+                "logo": "./src/assets/images/business-logo.png",
+                "estDate": "10-Nov-2018",
+                "designation": "Founder",
+                "gstin": "123456789ABCDEFG",
+                "msme": "123456789ABCDEFG",
+                "about": [
+                    "Shreesha Digital is the expert web services and digital marketing services providing company approaches to boost your business online presence.",
+                    "Shreesha Digital is a leading professional web design and web development company in Navi Mumbai offering various services such as Web Designing, Web Development, Graphic Design, Softwares, E-commerce Websites services."
+                ],
+
+                "services": [
+                    "Logo Design",
+                    "Web Designing",
+                    "Web Development",
+                    "Graphic Design",
+                    "Business SmartIDy",
+                    "Print Media"
+                ],
+                "efiles": [
+                    {
+                        "title": "File 1",
+                        "src": "test.doc",
+                        "type": "doc"
+                    },
+                    {
+                        "title": "File 2",
+                        "src": "test.pdf",
+                        "type": "pdf"
+                    },
+                    {
+                        "title": "File 3",
+                        "src": "test.xls",
+                        "type": "xls"
+                    }
+                ],
+                "address": "Flat No. 302, Building No. L-10, 3rd Floor, Sector 10, Ghansoli, Navi Mumbai - 400 701",
+                "call": "8450959594",
+                "sms": "8450959594",
+                "email": "mail.shreeshadigital@gmail.com",
+                "mapUrl": "https://goo.gl/maps/LhY1wqxVWzwV58Cx9",
+                "social": {
+                    "telegram": null,
+                    "facebook": null,
+                    "twitter": null,
+                    "linkedin": null,
+                    "instagram": null,
+                    "youtube": null,
+                    "catalogue": null
+                },
+                "upiId": "suraj.gd89@okaxis",
+                "paymentGateway": {
+                    "logo": "./src/assets/images/pg-logo-default.jpg",
+                    "url": ""
+                },
+                "bankAccount": {
+                    "name": "Suraj Ananda Patil",
+                    "bankName": "Kotak Mahindra Bank",
+                    "accountNumber": "3911366814",
+                    "ifscCode": "KKBK0000670",
+                    "accountType": "Saving",
+                    "branch": "Koparkhairne, Navi Mumbai"
+                },
+                "workingDayHrs": [
+                    {
+                        "day": "Monday",
+                        "openTime": "10:00 AM",
+                        "closeTime": "6:00 PM"
+                    },
+                    {
+                        "day": "Tuesday",
+                        "openTime": "10:00 AM",
+                        "closeTime": "6:00 PM"
+                    },
+                    {
+                        "day": "Wednesday",
+                        "openTime": "10:00 AM",
+                        "closeTime": "6:00 PM"
+                    },
+                    {
+                        "day": "Thursday",
+                        "openTime": "10:00 AM",
+                        "closeTime": "6:00 PM"
+                    },
+                    {
+                        "day": "Friday",
+                        "openTime": "10:00 AM",
+                        "closeTime": "6:00 PM"
+                    },
+                    {
+                        "day": "Saturday",
+                        "openTime": "10:00 AM",
+                        "closeTime": "6:00 PM"
+                    },
+                    {
+                        "day": "Sunday",
+                        "status": "Closed"
+                    }
+                ],
+                "links": [
+                    {
+                        "title": "Website",
+                        "url": "www.shreeshadigital.com"
+                    },
+                    {
+                        "title": "ePortfolio",
+                        "url": "www.shreeshadigital.com"
+                    }
+                ],
+                "chat": [
+                    {
+                        "title": "WhatsApp",
+                        "value": "8450959594"
+                    },
+                    {
+                        "title": "Telegram",
+                        "value": "@surajpatil89"
+                    }
+                ],
+                "photos": [
+                    {
+                        "title": "Image 1",
+                        "src": "./src/assets/images/gallery-1.jpg"
+                    },
+
+                    {
+                        "title": "Image 2",
+                        "src": "./src/assets/images/gallery-2.jpg"
+                    }
+                ],
+                "videos": [
+                    {
+                        "title": "Video 1",
+                        "url": ""
+                    },
+                    {
+                        "title": "Video 2",
+                        "url": ""
+                    }
+                ]
+            }
+        }
+    ]
+}
