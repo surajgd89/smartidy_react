@@ -5,8 +5,8 @@ import BusinessLogo from '../../assets/images/business-logo-default.jpg';
 import './Home.scss';
 
 
-
 function Home({ modal, refElement }) {
+
 
    let setModalOpen = modal;
    let { profile, social, tabs } = refElement;
@@ -25,7 +25,7 @@ function Home({ modal, refElement }) {
    }
 
    const ServiceYrCalc = () => {
-      let EstDate = '11/10/2018';
+      let EstDate = '2018-11-10';
       let Now = moment(new Date());
       let EstYear = moment(EstDate).format('yyyy');
       let RemYears = Now.diff(EstDate, 'years');
@@ -97,6 +97,7 @@ function Home({ modal, refElement }) {
          </div>
       )
    }
+
 
 
    return (

@@ -1,22 +1,20 @@
 {
-    "user": [
+    "users": [
         {
             "id": 1,
             "config": {
                 "smartIdyURL": null,
-                "activeProfile": "business", //individual
-                "profilePicType": "circle" //square
+                "IsActiveProfileBusiness": true,
+                "language": "en",
+                "IsPicTypeCircle": true
             },
             "individual": {
-                "flag": "Individual",
                 "name": "Suraj Patil",
                 "profilePicSrc": "./src/assets/images/profile-photo-default.jpg",
                 "experties": "Front-End Developer",
-
                 "call": "9594415153",
                 "email": "suraj.gd89@gmail.com",
                 "sms": "9594415153",
-
                 "social": {
                     "facebook": "https://www.facebook.com/suraj.gd89",
                     "twitter": "https://twitter.com/suraj_patil89",
@@ -25,7 +23,6 @@
                     "youtube": null,
                     "catalogue": null
                 },
-
                 "chat": [
                     {
                         "title": "WhatsApp",
@@ -38,48 +35,19 @@
                 ]
             },
             "business": {
-                "flag": "Business",
                 "name": "Shreesha Digital",
                 "logo": "./src/assets/images/business-logo.png",
                 "estDate": "10-Nov-2018",
-                "designation": "Founder",
-                "gstin": "123456789ABCDEFG",
-                "msme": "123456789ABCDEFG",
-                "about": [
-                    "Shreesha Digital is the expert web services and digital marketing services providing company approaches to boost your business online presence.",
-                    "Shreesha Digital is a leading professional web design and web development company in Navi Mumbai offering various services such as Web Designing, Web Development, Graphic Design, Softwares, E-commerce Websites services."
-                ],
-
-                "services": [
-                    "Logo Design",
-                    "Web Designing",
-                    "Web Development",
-                    "Graphic Design",
-                    "Business SmartIDy",
-                    "Print Media"
-                ],
-                "efiles": [
-                    {
-                        "title": "File 1",
-                        "src": "test.doc",
-                        "type": "doc"
-                    },
-                    {
-                        "title": "File 2",
-                        "src": "test.pdf",
-                        "type": "pdf"
-                    },
-                    {
-                        "title": "File 3",
-                        "src": "test.xls",
-                        "type": "xls"
-                    }
-                ],
-                "address": "Flat No. 302, Building No. L-10, 3rd Floor, Sector 10, Ghansoli, Navi Mumbai - 400 701",
                 "call": "8450959594",
                 "sms": "8450959594",
                 "email": "mail.shreeshadigital@gmail.com",
+                "designation": "Founder",
+                "gstin": "123456789ABCDEFG",
+                "msme": "123456789ABCDEFG",
+                "fssai": "123456789ABCDEFG",
+                "address": "Flat No. 302, Building No. L-10, 3rd Floor, Sector 10, Ghansoli, Navi Mumbai - 400 701",
                 "mapUrl": "https://goo.gl/maps/LhY1wqxVWzwV58Cx9",
+                "upiId": "suraj.gd89@okaxis",
                 "social": {
                     "telegram": null,
                     "facebook": null,
@@ -89,7 +57,6 @@
                     "youtube": null,
                     "catalogue": null
                 },
-                "upiId": "suraj.gd89@okaxis",
                 "paymentGateway": {
                     "logo": "./src/assets/images/pg-logo-default.jpg",
                     "url": ""
@@ -102,40 +69,33 @@
                     "accountType": "Saving",
                     "branch": "Koparkhairne, Navi Mumbai"
                 },
-                "workingDayHrs": [
+                "about": [
+                    "Shreesha Digital is the expert web services and digital marketing services providing company approaches to boost your business online presence.",
+                    "Shreesha Digital is a leading professional web design and web development company in Navi Mumbai offering various services such as Web Designing, Web Development, Graphic Design, Softwares, E-commerce Websites services."
+                ],
+                "services": [
+                    "Logo Design",
+                    "Web Designing",
+                    "Web Development",
+                    "Graphic Design",
+                    "Business SmartIDy",
+                    "Print Media"
+                ],
+                "efiles": [
                     {
-                        "day": "Monday",
-                        "openTime": "10:00 AM",
-                        "closeTime": "6:00 PM"
+                        "title": "File 1",
+                        "src": "test1.doc",
+                        "type": "doc"
                     },
                     {
-                        "day": "Tuesday",
-                        "openTime": "10:00 AM",
-                        "closeTime": "6:00 PM"
+                        "title": "File 2",
+                        "src": "test2.pdf",
+                        "type": "pdf"
                     },
                     {
-                        "day": "Wednesday",
-                        "openTime": "10:00 AM",
-                        "closeTime": "6:00 PM"
-                    },
-                    {
-                        "day": "Thursday",
-                        "openTime": "10:00 AM",
-                        "closeTime": "6:00 PM"
-                    },
-                    {
-                        "day": "Friday",
-                        "openTime": "10:00 AM",
-                        "closeTime": "6:00 PM"
-                    },
-                    {
-                        "day": "Saturday",
-                        "openTime": "10:00 AM",
-                        "closeTime": "6:00 PM"
-                    },
-                    {
-                        "day": "Sunday",
-                        "status": "Closed"
+                        "title": "File 3",
+                        "src": "test3.xls",
+                        "type": "xls"
                     }
                 ],
                 "links": [
@@ -172,11 +132,55 @@
                 "videos": [
                     {
                         "title": "Video 1",
-                        "url": ""
+                        "url": null
                     },
                     {
                         "title": "Video 2",
-                        "url": ""
+                        "url": null
+                    }
+                ],
+                "workingDayHrs": [
+                    {
+                        "day": "Monday",
+                        "openAt": "10:00 AM",
+                        "closesAt": "6:00 PM",
+                        "closed": false
+                    },
+                    {
+                        "day": "Tuesday",
+                        "openAt": "10:00 AM",
+                        "closesAt": "6:00 PM",
+                        "closed": false
+                    },
+                    {
+                        "day": "Wednesday",
+                        "openAt": "10:00 AM",
+                        "closesAt": "6:00 PM",
+                        "closed": false
+                    },
+                    {
+                        "day": "Thursday",
+                        "openAt": "10:00 AM",
+                        "closesAt": "6:00 PM",
+                        "closed": false
+                    },
+                    {
+                        "day": "Friday",
+                        "openAt": "10:00 AM",
+                        "closesAt": "6:00 PM",
+                        "closed": false
+                    },
+                    {
+                        "day": "Saturday",
+                        "openAt": "10:00 AM",
+                        "closesAt": "6:00 PM",
+                        "closed": false
+                    },
+                    {
+                        "day": "Sunday",
+                        "openAt": "10:00 AM",
+                        "closesAt": "6:00 PM",
+                        "closed": true
                     }
                 ]
             }

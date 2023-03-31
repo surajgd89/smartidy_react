@@ -2,7 +2,9 @@ import { useRef, useState, useEffect } from 'react';
 import { Outlet, NavLink, useLocation } from 'react-router-dom';
 import './Tabs.scss';
 
-function Tabs(props) {
+function Tabs({ refElement }) {
+
+
     const location = useLocation();
     const TabFloor = useRef();
 
@@ -16,14 +18,23 @@ function Tabs(props) {
         left: 0,
     });
 
+    const [loading, setLoading] = useState(true);
+
+    const loadData = async () => {
+        await new Promise((r) => setTimeout(r, 2000));
+        setLoading((loading) => !loading);
+
+    };
+
     const handleClick = (e) => {
+        loadData();
         let getWidth = e.currentTarget.offsetWidth;
         let getLeft = e.currentTarget.offsetLeft;
-
         setDimensions({
             width: getWidth,
             left: getLeft,
         });
+        console.log('load')
     };
 
     useEffect(() => {
@@ -32,15 +43,18 @@ function Tabs(props) {
             width: IsActive.offsetWidth,
             left: IsActive.offsetLeft,
         });
-
-
+        loadData();
+        console.log('1 load')
     }, []);
+
+
+
 
     return (
         <>
-            <Outlet />
+            {loading ? <div className="page-loader"></div> : <Outlet />}
             <div
-                ref={props.refElement}
+                ref={refElement}
                 className={`${pagename === '' ? 'tabs' : 'tabs primary-tabs'}`}
             >
                 <NavLink
@@ -108,6 +122,11 @@ function Tabs(props) {
             </div>
         </>
     );
+
+
+
+
+
 }
 
 export default Tabs;

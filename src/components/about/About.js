@@ -22,12 +22,7 @@ function About({ modal, refElement }) {
 
    useEffect(() => {
       setDay(moment().isoWeekday())
-
    }, [])
-
-
-
-
 
 
    return (
@@ -179,7 +174,7 @@ function About({ modal, refElement }) {
                   <div className="val">
                      <span ref={gstin_no}>123456789ABCDEFG</span>
                      <i className={`fa-light fa-clone copy-to-clipboard ${Copied ? 'copied' : ''}`} onClick={(e) => { copyToClipboard(gstin_no.current.innerText) }}>
-                        <span class="tooltip-text">Copied</span>
+                        <span className="tooltip-text">Copied</span>
                      </i>
                   </div>
                </div>
@@ -373,7 +368,7 @@ function About({ modal, refElement }) {
                </div>
             </div>
          </div>
-      </div>
+      </div >
    )
 }
 export default About;
