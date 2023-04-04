@@ -4,7 +4,6 @@ import './Tabs.scss';
 
 function Tabs({ refElement }) {
 
-
     const location = useLocation();
     const TabFloor = useRef();
 
@@ -19,11 +18,9 @@ function Tabs({ refElement }) {
     });
 
     const [loading, setLoading] = useState(true);
-
     const loadData = async () => {
         await new Promise((r) => setTimeout(r, 2000));
         setLoading((loading) => !loading);
-
     };
 
     const handleClick = (e) => {
@@ -38,16 +35,14 @@ function Tabs({ refElement }) {
     };
 
     useEffect(() => {
+        loadData();
         let IsActive = document.querySelector('.tabs a.active');
         setDimensions({
             width: IsActive.offsetWidth,
             left: IsActive.offsetLeft,
         });
-        loadData();
         console.log('1 load')
     }, []);
-
-
 
 
     return (

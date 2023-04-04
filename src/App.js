@@ -38,12 +38,7 @@ function App() {
   const social = useRef();
   const gstin_no = useRef();
 
-
-
-
-
   console.log(Data)
-
 
   return (
     <>
