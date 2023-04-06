@@ -231,14 +231,16 @@ button {
 
     .inner-body {
         width: 100%;
+        min-height: calc(100vh - 80px);
+        padding-bottom: 80px;
         margin: auto;
         max-width: 768px;
         position: relative;
         background-color: #ffffff;
-        padding-bottom: 80px;
 
         @include mobile {
             padding-bottom: 65px;
+            min-height: calc(100vh - 65px);
         }
 
         .page {

@@ -1,5 +1,5 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { useState, useRef, useEffect } from 'react';
+import { BrowserRouter, Routes, Route, useParams } from "react-router-dom";
+import { useState, useRef } from 'react';
 import { useGlobalContext } from './context';
 import './App.scss';
 
@@ -21,6 +21,7 @@ import UpiPaymentModal from './layout/modals/UpiPaymentModal';
 function App() {
 
   const { Data } = useGlobalContext();
+  const searchParams = `?id=${Data.userID}`
 
   let [modalOpen, setModalOpen] = useState({
     VisitModal: false,
@@ -38,34 +39,24 @@ function App() {
   const social = useRef();
   const gstin_no = useRef();
 
-  console.log(Data)
 
   return (
     <>
       {Data.error != null ? <h2 className="data-error">{Data.error}</h2> : ''}
       {Data.isLoading && <div className="loader"></div>}
       {Data.user != null && <div className="wrapper" data-lang={Data.user.config.language}>
-
         <div className="inner-body">
-
           <BrowserRouter>
             <Routes>
-              <Route path="/" element={<Tabs refElement={tabs} />}>
-
-                <Route index path="/" element={<Home modal={setModalOpen} refElement={{ profile, social, tabs }} />} />
-                <Route path="about" element={<About modal={setModalOpen} refElement={{ gstin_no }} />} />
-                <Route path="gallery" element={<Gallery modal={setModalOpen} />} />
-                <Route path="payus" element={<PayUs modal={setModalOpen} />} />
-
+              <Route path="/SmartIDy" element={<Tabs refElement={{ tabs, Data }} />}>
+                <Route index path={`home${searchParams}`} element={<Home modal={setModalOpen} refElement={{ profile, social, tabs }} />} />
+                <Route path={`about${searchParams}`} element={<About modal={setModalOpen} refElement={{ gstin_no }} />} />
+                <Route path={`gallery${searchParams}`} element={<Gallery modal={setModalOpen} />} />
+                <Route path={`payus${searchParams}`} element={<PayUs modal={setModalOpen} />} />
               </Route>
             </Routes>
           </BrowserRouter>
-
-
         </div>
-
-
-
         {modalOpen.VisitModal && <VisitModal modal={setModalOpen} />}
         {modalOpen.ForwardModal && <ForwardModal modal={setModalOpen} />}
         {modalOpen.ShareModal && <ShareModal modal={setModalOpen} />}
@@ -75,9 +66,6 @@ function App() {
         {modalOpen.SmsModal && <SmsModal modal={setModalOpen} />}
         {modalOpen.UpiPaymentModal && <UpiPaymentModal modal={setModalOpen} />}
       </div>}
-
-
-
     </>
   );
 }

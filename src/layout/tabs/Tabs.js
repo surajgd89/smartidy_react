@@ -2,13 +2,18 @@ import { useRef, useState, useEffect } from 'react';
 import { Outlet, NavLink, useLocation } from 'react-router-dom';
 import './Tabs.scss';
 
-function Tabs({ refElement }) {
+
+function Tabs({ tabs, Data }) {
+
+    console.log(Data)
+
+    const searchParams = `?id=${1}`;
+
+    console.log(searchParams)
 
     const location = useLocation();
     const TabFloor = useRef();
-
     const { pathname } = location;
-
     const page = pathname.split('/');
     const pagename = page[page.length - 1];
 
@@ -17,44 +22,47 @@ function Tabs({ refElement }) {
         left: 0,
     });
 
-    const [loading, setLoading] = useState(true);
-    const loadData = async () => {
-        await new Promise((r) => setTimeout(r, 2000));
-        setLoading((loading) => !loading);
+    const [Innerloading, setInnerloading] = useState(true);
+
+    const InnerPageLoader = () => {
+        setInnerloading(true);
+        setTimeout(() => {
+            setInnerloading(false);
+        }, 1000)
     };
 
     const handleClick = (e) => {
-        loadData();
+        InnerPageLoader();
         let getWidth = e.currentTarget.offsetWidth;
         let getLeft = e.currentTarget.offsetLeft;
         setDimensions({
             width: getWidth,
             left: getLeft,
         });
-        console.log('load')
+
     };
 
     useEffect(() => {
-        loadData();
+        InnerPageLoader();
         let IsActive = document.querySelector('.tabs a.active');
+
         setDimensions({
             width: IsActive.offsetWidth,
             left: IsActive.offsetLeft,
         });
-        console.log('1 load')
+
     }, []);
 
 
     return (
         <>
-            {loading ? <div className="page-loader"></div> : <Outlet />}
+            {Innerloading ? <div className="page-loader"></div> : <Outlet />}
             <div
-                ref={refElement}
+                ref={tabs}
                 className={`${pagename === '' ? 'tabs' : 'tabs primary-tabs'}`}
             >
                 <NavLink
-                    to="/"
-
+                    to={`/SmartIDy/home${searchParams}`}
                     onClick={handleClick}
                 >
                     <span>
@@ -67,8 +75,7 @@ function Tabs({ refElement }) {
                     </span>
                 </NavLink>
                 <NavLink
-                    to="/about"
-
+                    to={`/SmartIDy/about${searchParams}`}
                     onClick={handleClick}
                 >
                     <span>
@@ -81,8 +88,7 @@ function Tabs({ refElement }) {
                     </span>
                 </NavLink>
                 <NavLink
-                    to="/gallery"
-
+                    to={`/SmartIDy/gallery${searchParams}`}
                     onClick={handleClick}
                 >
                     <span>
@@ -95,8 +101,7 @@ function Tabs({ refElement }) {
                     </span>
                 </NavLink>
                 <NavLink
-                    to="/payus"
-
+                    to={`/SmartIDy/payus${searchParams}`}
                     onClick={handleClick}
                 >
                     <span>
