@@ -4,9 +4,8 @@ import './Modal.scss';
 function EmailModal(props) {
    let setModalOpen = props.modal;
    const { Data } = useGlobalContext();
-   useEffect(() => {
-      console.log(Data)
-   }, [])
+   const userData = Data.userData;
+
    return (
       <div className="modal-backdrop">
          <div className="modal">
@@ -21,21 +20,21 @@ function EmailModal(props) {
             </div>
             <div className="modal-body">
                <div className="item-list emails">
-                  <a href="mailto:suraj.gd89@gmail.com" className="item-row add-vcard ">
+                  <a href={`mailto:${userData.individual.email}`} className="item-row add-vcard ">
                      <span className="lbl">
                         <label className="en">Individual</label>
                         <label className="mr">वैयक्तिक</label>
                         <label className="hn">व्यक्तिगत</label>
                      </span>
-                     <span className="val">individual@gmail.com</span>
+                     <span className="val">{userData.individual.email}</span>
                   </a>
-                  <a href="mailto:mail.shreeshadigital@gmail.com" className="item-row ">
+                  <a href={`mailto:${userData.business.email}`} className="item-row">
                      <span className="lbl">
                         <label className="en">Business</label>
                         <label className="mr">व्यवसाय</label>
                         <label className="hn">व्यवसाय</label>
                      </span>
-                     <span className="val">business@gmail.com</span>
+                     <span className="val">{userData.business.email}</span>
                   </a>
                </div>
             </div>

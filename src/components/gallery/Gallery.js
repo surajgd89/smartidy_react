@@ -1,14 +1,15 @@
 import { useGlobalContext } from '../../context';
 import { useEffect } from "react";
 import './Gallery.scss';
-import GalleryImage from '../../assets/images/gallery-default.jpg';
+//import GalleryImage from '../../assets/images/gallery-default.jpg';
 
 
 function Gallery({ modal }) {
    const setModalOpen = modal;
    const { Data } = useGlobalContext();
+   const userData = Data.userData;
    useEffect(() => {
-      console.log(Data)
+      console.log(userData)
    }, [])
 
 
@@ -40,24 +41,14 @@ function Gallery({ modal }) {
                </div>
                <div className="images-area ">
                   <div className="images-list">
-                     <a className="img-item" href={GalleryImage}>
-                        <img src={GalleryImage} />
-                     </a>
-                     <a className="img-item" href={GalleryImage}>
-                        <img src={GalleryImage} />
-                     </a>
-                     <a className="img-item" href={GalleryImage}>
-                        <img src={GalleryImage} />
-                     </a>
-                     <a className="img-item" href={GalleryImage}>
-                        <img src={GalleryImage} />
-                     </a>
-                     <a className="img-item" href={GalleryImage}>
-                        <img src={GalleryImage} />
-                     </a>
-                     <a className="img-item" href={GalleryImage}>
-                        <img src={GalleryImage} />
-                     </a>
+
+                     {userData.business.gallery.map((element, index) => {
+                        return (
+                           <a className="img-item" href={element.src} key={index}>
+                              <img src={element.src} />
+                           </a>
+                        )
+                     })}
                   </div>
                   <div className="info-message">
                      <img className="info-ico" src="images/no-image.png" alt="" />

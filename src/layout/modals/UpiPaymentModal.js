@@ -4,9 +4,8 @@ import './Modal.scss';
 function UpiPaymentModal(props) {
    let setModalOpen = props.modal;
    const { Data } = useGlobalContext();
-   useEffect(() => {
-      console.log(Data)
-   }, [])
+   const userData = Data.userData;
+
    return (
       <div className="modal-backdrop">
          <div className="modal">

@@ -16,7 +16,6 @@ function About({ modal, refElement }) {
    const copyToClipboard = (data) => {
       navigator.clipboard.writeText(data)
       setCopied(true);
-
       setTimeout(() => {
          setCopied(false);
       }, 1500)
@@ -24,7 +23,7 @@ function About({ modal, refElement }) {
 
    useEffect(() => {
       setDay(moment().isoWeekday())
-      console.log(Data)
+      console.log(userData.business.workingDayHrs)
    }, [])
 
 
@@ -121,14 +120,14 @@ function About({ modal, refElement }) {
                            return (
                               <>
                                  {element.type === "pdf" &&
-                                    <a href={element.src} className="e-file " download>
+                                    <a href={element.src} className="e-file" key={index} download>
                                        <span className="file-ico"><i className={`fa-light fa-file-pdf`}></i></span>
                                        <span className="file-name">{element.title}</span>
                                        <span className="file-act-ico"><i className="fad fa-download"></i></span>
                                     </a>
                                  }
                                  {element.type === "doc" &&
-                                    <a href={element.src} className="e-file " download>
+                                    <a href={element.src} className="e-file" key={index} download>
                                        <span className="file-ico"><i className="fa-light fa-file-word"></i></span>
                                        <span className="file-name">{element.title}</span>
                                        <span className="file-act-ico"><i className="fad fa-download"></i></span>
@@ -136,7 +135,7 @@ function About({ modal, refElement }) {
                                  }
 
                                  {element.type === "xls" &&
-                                    <a href={element.src} className="e-file " download>
+                                    <a href={element.src} className="e-file" key={index} download>
                                        <span className="file-ico"><i className="fa-light fa-file-excel"></i></span>
                                        <span className="file-name">{element.title}</span>
                                        <span className="file-act-ico"><i className="fad fa-download"></i></span>
@@ -144,7 +143,7 @@ function About({ modal, refElement }) {
                                  }
 
                                  {element.type === "ppt" &&
-                                    <a href={element.src} className="e-file " download>
+                                    <a href={element.src} className="e-file" key={index} download>
                                        <span className="file-ico"><i className="fa-light fa-file-powerpoint"></i></span>
                                        <span className="file-name">{element.title}</span>
                                        <span className="file-act-ico"><i className="fad fa-download"></i></span>
@@ -154,9 +153,6 @@ function About({ modal, refElement }) {
                               </>
                            )
                         })}
-
-
-
                      </div>
                   </div>
                </div>
@@ -184,7 +180,7 @@ function About({ modal, refElement }) {
                <div className="data">
                   <div className="val">
                      <span ref={gstin_no}>{userData.business.gstin}</span>
-                     <i className={`fa-light fa-clone copy-to-clipboard ${Copied ? 'copied' : ''}`} onClick={(e) => { copyToClipboard(gstin_no.current.innerText) }}>
+                     <i className={`fa-light fa-clone copy-to-clipboard ${Copied ? 'copied' : ''}`} onClick={(e) => { copyToClipboard(userData.business.gstin) }}>
                         <span className="tooltip-text">Copied</span>
                      </i>
                   </div>
@@ -196,8 +192,8 @@ function About({ modal, refElement }) {
                   <div className="lbl">MSME</div>
                </div>
                <div className="data">
-                  <div className="val"><span id="business-msme">{userData.business.msme}</span> <i
-                     className="fa-light fa-clone copy-to-clipboard" data-clipboard-target="#business-msme"></i>
+                  <div className="val"><span>{userData.business.msme}</span> <i
+                     className="fa-light fa-clone copy-to-clipboard" ></i>
                   </div>
                </div>
             </div>
@@ -208,8 +204,8 @@ function About({ modal, refElement }) {
                   <div className="lbl">FSSAI</div>
                </div>
                <div className="data">
-                  <div className="val"><span id="business-fssai">{userData.business.fssai}</span> <i
-                     className="fa-light fa-clone copy-to-clipboard" data-clipboard-target="#business-fssai"></i>
+                  <div className="val"><span>{userData.business.fssai}</span> <i
+                     className="fa-light fa-clone copy-to-clipboard"></i>
                   </div>
                </div>
             </div>
@@ -225,9 +221,9 @@ function About({ modal, refElement }) {
 
                </div>
                <div className="data">
-                  <div className="val"><a href={`mailto:${userData.business.email}`} id="copy-business-email"
+                  <div className="val"><a href={`mailto:${userData.business.email}`}
                      className="link">{userData.business.email}</a><i className="fa-light fa-clone copy-to-clipboard"
-                        data-clipboard-target="#copy-business-email"></i>
+                     ></i>
                   </div>
                </div>
             </div>
@@ -243,29 +239,25 @@ function About({ modal, refElement }) {
                <div className="data">
 
 
-                  <div className="val"><span id="copy-business-number">{userData.business.call}</span><i
+                  <div className="val"><span>{userData.business.call}</span><i
                      className="fa-light fa-clone copy-to-clipboard"
-                     data-clipboard-target="#copy-business-number"></i>
+                  ></i>
                   </div>
                </div>
             </div>
             <div className="data-row">
                <div className="title">
                   <i className="fa-light fa-globe"></i>
-
-
                   <div className="lbl">
                      <label className="en">Website</label>
                      <label className="mr">संकेतस्थळ</label>
                      <label className="hn">वेबसाइट</label>
                   </div>
-
                </div>
                <div className="data">
-                  <div className="val"><a href="https://www.websitename.com/"
-                     id="copy-business-website" className="link">www.websiteName.com</a><i
-                        className="fa-light fa-clone copy-to-clipboard"
-                        data-clipboard-target="#copy-business-website"></i>
+                  <div className="val"><a href={userData.business.website}
+                     className="link">{userData.business.website}</a><i
+                        className="fa-light fa-clone copy-to-clipboard"></i>
                   </div>
                </div>
             </div>
@@ -275,12 +267,8 @@ function About({ modal, refElement }) {
                   <div className="lbl">SmartIDy URL</div>
                </div>
                <div className="data">
-
-
                   <div className="val">
-                     <a href="#" id="copy-smartidy-url"
-                        className="link smartidy-url"></a><i className="fa-light fa-clone copy-to-clipboard"
-                           data-clipboard-target="#copy-smartidy-url"></i>
+                     <a href={userData.config.smartIdyURL} className="link smartidy-url">{userData.config.smartIdyURL}</a><i className="fa-light fa-clone copy-to-clipboard"></i>
                   </div>
                </div>
             </div>
@@ -294,95 +282,27 @@ function About({ modal, refElement }) {
                   </div>
                </div>
                <div className="data">
-
-
                   <div className="val">
-
                      <ul className="buss-hrs-sec">
-                        <li className={Day == 1 ? 'active' : ''}>
-                           <div className="day">
-                              <label className="en">Monday</label>
-                              <label className="mr">सोमवार</label>
-                              <label className="hn">सोमवार</label>
-                           </div>
-                           <div className="time">
-                              <span>10:00&nbsp;AM</span>
-                              <span>6:00&nbsp;PM</span>
-                           </div>
-                        </li>
-                        <li className={Day === 2 ? 'active' : ''}>
-                           <div className="day">
-                              <label className="en">Tuesday</label>
-                              <label className="mr">मंगळवार</label>
-                              <label className="hn">मंगलवार</label>
-                           </div>
-                           <div className="time">
-                              <span>10:00&nbsp;AM</span>
-                              <span>6:00&nbsp;PM</span>
-                           </div>
-                        </li>
-
-                        <li className={Day === 3 ? 'active' : ''}>
-                           <div className="day">
-                              <label className="en">Wednesday</label>
-                              <label className="mr">बुधवार</label>
-                              <label className="hn">बुधवार</label>
-                           </div>
-                           <div className="time">
-                              <span>10:00&nbsp;AM</span>
-                              <span>6:00&nbsp;PM</span>
-                           </div>
-                        </li>
-
-                        <li className={Day === 4 ? 'active' : ''}>
-                           <div className="day">
-                              <label className="en">Thursday</label>
-                              <label className="mr">गुरुवार</label>
-                              <label className="hn">गुरुवार</label>
-                           </div>
-                           <div className="time">
-                              <span>10:00&nbsp;AM</span>
-                              <span>6:00&nbsp;PM</span>
-                           </div>
-                        </li>
-
-                        <li className={Day === 5 ? 'active' : ''}>
-                           <div className="day">
-                              <label className="en">Friday</label>
-                              <label className="mr">शुक्रवार</label>
-                              <label className="hn">शुक्रवार</label>
-                           </div>
-                           <div className="time">
-                              <span>10:00&nbsp;AM</span>
-                              <span>6:00&nbsp;PM</span>
-                           </div>
-                        </li>
-
-                        <li className={Day === 6 ? 'active' : ''}>
-                           <div className="day">
-                              <label className="en">Saturday</label>
-                              <label className="mr">शनिवार</label>
-                              <label className="hn">शनिवार</label>
-                           </div>
-                           <div className="time">
-                              <span>10:00&nbsp;AM</span>
-                              <span>6:00&nbsp;PM</span>
-                           </div>
-                        </li>
-
-                        <li className={Day === 7 ? 'active' : ''}>
-                           <div className="day">
-                              <label className="en">Sunday</label>
-                              <label className="mr">रविवार</label>
-                              <label className="hn">रविवार</label>
-                           </div>
-                           <div className="time">
-                              <span>Closed</span>
-                           </div>
-                        </li>
-
+                        {userData.business.workingDayHrs.map((element, index) => {
+                           return (
+                              <li className={index == 1 ? 'active' : ''} key={index}>
+                                 <div className="day">
+                                    <label className="en">{element.day}</label>
+                                 </div>
+                                 {element.closed ?
+                                    <div className="time">
+                                       <span>Closed</span>
+                                    </div> :
+                                    <div className="time">
+                                       <span>{element.openAt}</span>
+                                       <span>{element.closesAt}</span>
+                                    </div>
+                                 }
+                              </li>
+                           )
+                        })}
                      </ul>
-
                   </div>
                </div>
             </div>

@@ -3,7 +3,7 @@
         {
             "id": 1,
             "config": {
-                "smartIdyURL": null,
+                "smartIdyURL": "https://www.smartdiy.in/home?id=1",
                 "IsActiveProfileBusiness": true,
                 "language": "en",
                 "IsPicTypeCircle": true
@@ -12,21 +12,22 @@
                 "name": "Suraj Patil",
                 "profilePicSrc": "./src/assets/images/profile-photo-default.jpg",
                 "experties": "Front-End Developer",
-                "call": "9594415153",
+                "call": "+919594415153",
                 "email": "suraj.gd89@gmail.com",
-                "sms": "9594415153",
+                "sms": "+919594415153",
                 "social": {
                     "facebook": "https://www.facebook.com/suraj.gd89",
                     "twitter": "https://twitter.com/suraj_patil89",
                     "linkedin": "https://www.linkedin.com/in/surajpatil89/",
+                    "telegram": null,
                     "instagram": "https://www.instagram.com/i_am_suraj.patil/",
-                    "youtube": null,
-                    "catalogue": null
+                    "youtube": "https://www.youtube.com/channel/enter_your_id/",
+                    "catalogue": "https://wa.me/c/911234567890"
                 },
                 "chat": [
                     {
                         "title": "WhatsApp",
-                        "value": "9594415153"
+                        "value": "+919594415153"
                     },
                     {
                         "title": "Telegram",
@@ -38,8 +39,8 @@
                 "name": "Shreesha Digital",
                 "logo": "./src/assets/images/business-logo.png",
                 "estDate": "10-Nov-2018",
-                "call": "8450959594",
-                "sms": "8450959594",
+                "call": "+918450959594",
+                "sms": "+918450959594",
                 "email": "mail.shreeshadigital@gmail.com",
                 "designation": "Founder",
                 "gstin": "123456789ABCDEFG",
@@ -48,12 +49,13 @@
                 "address": "Flat No. 302, Building No. L-10, 3rd Floor, Sector 10, Ghansoli, Navi Mumbai - 400 701",
                 "mapUrl": "https://goo.gl/maps/LhY1wqxVWzwV58Cx9",
                 "upiId": "suraj.gd89@okaxis",
+                "website": "https://www.shreeshadigital.com",
                 "social": {
-                    "telegram": null,
                     "facebook": null,
                     "twitter": null,
                     "linkedin": null,
                     "instagram": null,
+                    "telegram": null,
                     "youtube": null,
                     "catalogue": null
                 },
@@ -63,10 +65,10 @@
                 },
                 "bankAccount": {
                     "name": "Suraj Ananda Patil",
-                    "bankName": "Kotak Mahindra Bank",
-                    "accountNumber": "3911366814",
-                    "ifscCode": "KKBK0000670",
-                    "accountType": "Saving",
+                    "bank": "Kotak Mahindra Bank",
+                    "number": "3911366814",
+                    "ifsc": "KKBK0000670",
+                    "type": "Saving",
                     "branch": "Koparkhairne, Navi Mumbai"
                 },
                 "about": [
@@ -106,11 +108,11 @@
                 "links": [
                     {
                         "title": "Website",
-                        "url": "www.shreeshadigital.com"
+                        "url": "https://www.shreeshadigital.com"
                     },
                     {
                         "title": "ePortfolio",
-                        "url": "www.shreeshadigital.com"
+                        "url": "https://www.shreeshadigital.com"
                     }
                 ],
                 "chat": [
@@ -123,15 +125,35 @@
                         "value": "@surajpatil89"
                     }
                 ],
-                "photos": [
+                "gallery": [
                     {
                         "title": "Image 1",
-                        "src": "./src/assets/images/gallery-1.jpg"
+                        "src": "./src/assets/images/user/sd-gallery-1.jpg"
                     },
 
                     {
                         "title": "Image 2",
-                        "src": "./src/assets/images/gallery-2.jpg"
+                        "src": "/src/assets/images/user/sd-gallery-2.jpg"
+                    },
+
+                    {
+                        "title": "Image 3",
+                        "src": "/src/assets/images/user/sd-gallery-3.jpg"
+                    },
+
+                    {
+                        "title": "Image 4",
+                        "src": "/src/assets/images/user/sd-gallery-4.jpg"
+                    },
+
+                    {
+                        "title": "Image 5",
+                        "src": "/src/assets/images/user/sd-gallery-5.jpg"
+                    },
+
+                    {
+                        "title": "Image 6",
+                        "src": "/src/assets/images/user/sd-gallery-6.jpg"
                     }
                 ],
                 "videos": [

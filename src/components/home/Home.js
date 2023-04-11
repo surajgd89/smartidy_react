@@ -46,9 +46,7 @@ function Home({ modal, refElement }) {
       setEstObject(ServiceYrCalc);
    }, [Profile])
 
-   useEffect(() => {
-      console.log(Data.userData.individual.name)
-   }, [])
+
 
 
    const BusinessProfile = () => {
@@ -225,30 +223,62 @@ function Home({ modal, refElement }) {
             </a>
          </div>
          <div className="social" ref={social}>
-            <a href="https://www.facebook.com/enter_your_id" className="facebook">
-               <i className="fab fa-facebook-f"></i>
-               <span>Facebook</span>
-            </a>
-            <a href="https://twitter.com/enter_your_id" className="twitter">
-               <i className="fab fa-twitter"></i>
-               <span>Twitter</span>
-            </a>
-            <a href="https://www.linkedin.com/in/enter_your_id/" className="linkedin">
-               <i className="fab fa-linkedin-in"></i>
-               <span>Linkedin</span>
-            </a>
-            <a href="https://www.instagram.com/enter_your_id/" className="instagram">
-               <i className="fab fa-instagram"></i>
-               <span>Instagram</span>
-            </a>
-            <a href="https://www.youtube.com/channel/enter_your_id/" className="youtube">
-               <i className="fab fa-youtube"></i>
-               <span>YouTube</span>
-            </a>
-            <a href="https://wa.me/c/911234567890" className="whatsapp">
-               <i className="fab fa-whatsapp"></i>
-               <span>Catalogue</span>
-            </a>
+
+            {Data.userData.individual.social.facebook &&
+               <a href={Data.userData.individual.social.facebook} className="facebook">
+                  <i className="fab fa-facebook-f"></i>
+                  <span>Facebook</span>
+               </a>
+            }
+            {Data.userData.individual.social.twitter &&
+               <a href={Data.userData.individual.social.twitter} className="twitter">
+                  <i className="fab fa-twitter"></i>
+                  <span>Twitter</span>
+               </a>
+            }
+            {Data.userData.individual.social.linkedin &&
+               <a href={Data.userData.individual.social.linkedin} className="linkedin">
+                  <i className="fab fa-linkedin-in"></i>
+                  <span>Linkedin</span>
+               </a>
+            }
+            {Data.userData.individual.social.instagram &&
+               <a href={Data.userData.individual.social.instagram} className="instagram">
+                  <i className="fab fa-instagram"></i>
+                  <span>Instagram</span>
+               </a>
+            }
+            {Data.userData.individual.social.youtube &&
+               <a href={Data.userData.individual.social.youtube} className="youtube">
+                  <i className="fab fa-youtube"></i>
+                  <span>YouTube</span>
+               </a>
+            }
+            {Data.userData.individual.social.catalogue &&
+               <a href={Data.userData.individual.social.catalogue} className="whatsapp">
+                  <i className="fab fa-whatsapp"></i>
+                  <span>Catalogue</span>
+               </a>
+            }
+            {Data.userData.individual.social.telegram &&
+               <a href={Data.userData.individual.social.telegram} className="telegram">
+                  <i className="fab fa-telegram"></i>
+                  <span>Telegram</span>
+               </a>
+            }
+
+
+
+
+
+
+
+
+
+
+
+
+
          </div>
       </div >
    )

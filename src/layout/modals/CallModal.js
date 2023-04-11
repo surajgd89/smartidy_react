@@ -4,9 +4,7 @@ import './Modal.scss';
 function CallModal(props) {
    let setModalOpen = props.modal;
    const { Data } = useGlobalContext();
-   useEffect(() => {
-      console.log(Data)
-   }, [])
+   const userData = Data.userData;
 
    return (
       <div className="modal-backdrop">
@@ -22,26 +20,26 @@ function CallModal(props) {
             </div>
             <div className="modal-body">
                <div className="item-list numbers">
-                  <a href="tel:+911234567890" className="item-row add-vcard ">
+                  <a href={`tel:${userData.individual.call}`} className="item-row add-vcard ">
                      <span className="lbl">
                         <label className="en">Individual</label>
                         <label className="mr">वैयक्तिक</label>
                         <label className="hn">व्यक्तिगत</label>
                      </span>
-                     <span className="val">1234567890</span>
+                     <span className="val">{userData.individual.call}</span>
                   </a>
-                  <a href="tel:+919876543210" className="item-row ">
+                  <a href={`tel:${userData.business.call}`} className="item-row">
                      <span className="lbl">
                         <label className="en">Business</label>
                         <label className="mr">व्यवसाय</label>
                         <label className="hn">व्यवसाय</label>
                      </span>
-                     <span className="val">9876543210</span>
+                     <span className="val">{userData.business.call}</span>
                   </a>
                </div>
             </div>
          </div>
-      </div>
+      </div >
 
    );
 }

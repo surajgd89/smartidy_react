@@ -4,9 +4,7 @@ import './Modal.scss';
 function VisitModal(props) {
    let setModalOpen = props.modal;
    const { Data } = useGlobalContext();
-   useEffect(() => {
-      console.log(Data)
-   }, [])
+   const userData = Data.userData;
 
    return (
 
@@ -23,22 +21,17 @@ function VisitModal(props) {
             </div>
             <div className="modal-body">
                <div className="item-list">
-                  <a href="http://www.shreeshadigital.com/" className="item-row ">
-                     <span className="lbl">
-                        <label className="en">Website</label>
-                        <label className="mr">संकेतस्थळ</label>
-                        <label className="hn">वेबसाइट</label>
-                     </span>
-                     <span className="val">www.businessname.com</span>
-                  </a>
-                  <a href="http://www.shreeshadigital.com/" className="item-row ">
-                     <span className="lbl">
-                        <label className="en">ePortfolio</label>
-                        <label className="mr">ePortfolio</label>
-                        <label className="hn">ePortfolio</label>
-                     </span>
-                     <span className="val">www.eportfolio.com</span>
-                  </a>
+                  {userData.business.links.map((element, index) => {
+                     return (
+                        <a href={element.url} className="item-row" key={index} target="_blank">
+                           <span className="lbl">
+                              <label>{element.title}</label>
+                           </span>
+                           <span className="val">{element.url}</span>
+                        </a>
+                     )
+                  })
+                  }
                </div>
             </div>
          </div>

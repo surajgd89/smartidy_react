@@ -5,9 +5,8 @@ import './Modal.scss';
 function ChatModal(props) {
    let setModalOpen = props.modal;
    const { Data } = useGlobalContext();
-   useEffect(() => {
-      console.log(Data)
-   }, [])
+   const userData = Data.userData;
+
    return (
       <div className="modal-backdrop">
          <div className="modal">
@@ -22,30 +21,36 @@ function ChatModal(props) {
             </div>
             <div className="modal-body">
                <div className="item-list">
-                  <a href="https://wa.me/911234567890" className="item-row ">
-                     <span className="lbl">
-                        <label className="en">Individual WhatsApp</label>
-                        <label className="mr">वैयक्तिक WhatsApp</label>
-                        <label className="hn">व्यक्तिगत WhatsApp</label>
-                     </span>
-                     <span className="val">1234567890</span>
-                  </a>
-                  <a href="https://t.me/surajpatil89" className="item-row ">
-                     <span className="lbl">
-                        <label className="en">Individual Telegram</label>
-                        <label className="mr">वैयक्तिक Telegram</label>
-                        <label className="hn">व्यक्तिगत Telegram</label>
-                     </span>
-                     <span className="val">@your_telegram_id</span>
-                  </a>
-                  <a href="https://wa.me/919876543210" className="item-row ">
-                     <span className="lbl">
-                        <label className="en">Business WhatsApp</label>
-                        <label className="mr">व्यवसाय WhatsApp</label>
-                        <label className="hn">व्यवसाय WhatsApp</label>
-                     </span>
-                     <span className="val">9876543210</span>
-                  </a>
+
+                  {userData.individual.chat.map((element, index) => {
+
+                     return (
+                        <a href={element.value} className="item-row" key={index}>
+                           <span className="lbl">
+                              <label className="en">Individual {element.title}</label>
+                              <label className="mr">वैयक्तिक {element.title}</label>
+                              <label className="hn">व्यक्तिगत {element.title}</label>
+                           </span>
+                           <span className="val">{element.value}</span>
+                        </a>
+
+                     )
+                  })}
+
+                  {userData.business.chat.map((element, index) => {
+                     return (
+                        <a href={element.value} className="item-row" key={index}>
+                           <span className="lbl">
+                              <label className="en">Business {element.title}</label>
+                              <label className="mr">व्यवसाय {element.title}</label>
+                              <label className="hn">व्यवसाय {element.title}</label>
+                           </span>
+                           <span className="val">{element.value}</span>
+                        </a>
+                     )
+                  })}
+
+
                </div>
             </div>
          </div>
