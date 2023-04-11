@@ -1,12 +1,15 @@
 import { useEffect, useState } from 'react';
 import moment from 'moment/moment';
+import { useGlobalContext } from '../../context';
 import ProfilePhoto from '../../assets/images/profile-photo-default.jpg';
 import BusinessLogo from '../../assets/images/business-logo-default.jpg';
+
 import './Home.scss';
 
 
 function Home({ modal, refElement }) {
-
+   const { Data } = useGlobalContext();
+   const userData = Data.userData;
 
    let setModalOpen = modal;
    let { profile, social, tabs } = refElement;
@@ -25,7 +28,7 @@ function Home({ modal, refElement }) {
    }
 
    const ServiceYrCalc = () => {
-      let EstDate = '2018-11-10';
+      let EstDate = userData.business.estDate;
       let Now = moment(new Date());
       let EstYear = moment(EstDate).format('yyyy');
       let RemYears = Now.diff(EstDate, 'years');
@@ -43,6 +46,10 @@ function Home({ modal, refElement }) {
       setEstObject(ServiceYrCalc);
    }, [Profile])
 
+   useEffect(() => {
+      console.log(Data.userData.individual.name)
+   }, [])
+
 
    const BusinessProfile = () => {
 
@@ -52,7 +59,7 @@ function Home({ modal, refElement }) {
                <img src={BusinessLogo} />
             </a>
             <div className="head" id="businessName">
-               <label className="en">Business Name</label>
+               <label className="en">{userData.business.name}</label>
                <label className="mr">व्यवसायाचे नाव</label>
                <label className="hn">व्यवसाय का नाम</label>
             </div>
@@ -83,15 +90,11 @@ function Home({ modal, refElement }) {
                <img src={ProfilePhoto} />
             </a>
             <div className=" head" id="individualName">
-               <label className="en">Good Name</label>
-               <label className="mr">शुभ नाव</label>
-               <label className="hn">शुभ नाम</label>
+               <label>{userData.individual.name}</label>
             </div>
             <div className="subhead">
                <span id="individualExperties">
-                  <label className="en">Experties</label>
-                  <label className="mr">विशेष कौशल्य</label>
-                  <label className="hn">विशेष कौशल्य</label>
+                  <label>{userData.individual.experties}</label>
                </span>
             </div>
          </div>

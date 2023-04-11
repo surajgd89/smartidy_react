@@ -1,18 +1,17 @@
 import { useRef, useState, useEffect } from 'react';
 import { Outlet, NavLink, useLocation } from 'react-router-dom';
+import { useGlobalContext } from '../../context';
 import './Tabs.scss';
 
+function Tabs({ refElement }) {
+    let { tabs } = refElement;
+    const { Data } = useGlobalContext();
 
-function Tabs({ tabs, Data }) {
 
-    console.log(Data)
-
-    const searchParams = `?id=${1}`;
-
-    console.log(searchParams)
-
+    //const searchParams = `?id=${1}`;
     const location = useLocation();
     const TabFloor = useRef();
+
     const { pathname } = location;
     const page = pathname.split('/');
     const pagename = page[page.length - 1];
@@ -23,47 +22,47 @@ function Tabs({ tabs, Data }) {
     });
 
     const [Innerloading, setInnerloading] = useState(true);
-
     const InnerPageLoader = () => {
         setInnerloading(true);
         setTimeout(() => {
             setInnerloading(false);
-        }, 1000)
+        }, 1500);
     };
 
     const handleClick = (e) => {
-        InnerPageLoader();
         let getWidth = e.currentTarget.offsetWidth;
         let getLeft = e.currentTarget.offsetLeft;
+
         setDimensions({
             width: getWidth,
             left: getLeft,
         });
-
+        InnerPageLoader();
     };
 
     useEffect(() => {
-        InnerPageLoader();
         let IsActive = document.querySelector('.tabs a.active');
-
         setDimensions({
             width: IsActive.offsetWidth,
             left: IsActive.offsetLeft,
         });
-
+        InnerPageLoader();
+        //console.log(Data)
     }, []);
-
 
     return (
         <>
             {Innerloading ? <div className="page-loader"></div> : <Outlet />}
             <div
                 ref={tabs}
-                className={`${pagename === '' ? 'tabs' : 'tabs primary-tabs'}`}
+                className={`${pagename === 'home' ? 'tabs' : 'tabs primary-tabs'
+                    }`}
             >
                 <NavLink
-                    to={`/SmartIDy/home${searchParams}`}
-                    onClick={handleClick}
+                    to={`home`}
+                    onClick={(e) => {
+                        handleClick(e);
+                    }}
                 >
                     <span>
                         <i className="fa-light fa-home-alt"></i>
@@ -75,8 +74,10 @@ function Tabs({ tabs, Data }) {
                     </span>
                 </NavLink>
                 <NavLink
-                    to={`/SmartIDy/about${searchParams}`}
-                    onClick={handleClick}
+                    to={`about`}
+                    onClick={(e) => {
+                        handleClick(e);
+                    }}
                 >
                     <span>
                         <i className="fa-light fa-briefcase"></i>
@@ -88,8 +89,10 @@ function Tabs({ tabs, Data }) {
                     </span>
                 </NavLink>
                 <NavLink
-                    to={`/SmartIDy/gallery${searchParams}`}
-                    onClick={handleClick}
+                    to={`gallery`}
+                    onClick={(e) => {
+                        handleClick(e);
+                    }}
                 >
                     <span>
                         <i className="fa-light fa-images"></i>
@@ -101,8 +104,10 @@ function Tabs({ tabs, Data }) {
                     </span>
                 </NavLink>
                 <NavLink
-                    to={`/SmartIDy/payus${searchParams}`}
-                    onClick={handleClick}
+                    to={`payus`}
+                    onClick={(e) => {
+                        handleClick(e);
+                    }}
                 >
                     <span>
                         <i className="fa-light fa-wallet"></i>
@@ -113,7 +118,6 @@ function Tabs({ tabs, Data }) {
                         </span>
                     </span>
                 </NavLink>
-
                 <div
                     className="tabs-floor"
                     ref={TabFloor}
@@ -122,11 +126,6 @@ function Tabs({ tabs, Data }) {
             </div>
         </>
     );
-
-
-
-
-
 }
 
 export default Tabs;

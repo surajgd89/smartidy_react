@@ -96,6 +96,11 @@
                         "title": "File 3",
                         "src": "test3.xls",
                         "type": "xls"
+                    },
+                    {
+                        "title": "File 4",
+                        "src": "test4.ppt",
+                        "type": "ppt"
                     }
                 ],
                 "links": [

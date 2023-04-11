@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
-//import copy from "copy-to-clipboard";
 import moment from 'moment/moment';
+import { useGlobalContext } from '../../context';
 import './About.scss';
 
 
 function About({ modal, refElement }) {
+   const { Data } = useGlobalContext();
+   const userData = Data.userData;
    const setModalOpen = modal;
    const { gstin_no } = refElement;
 
@@ -22,6 +24,7 @@ function About({ modal, refElement }) {
 
    useEffect(() => {
       setDay(moment().isoWeekday())
+      console.log(Data)
    }, [])
 
 
@@ -50,7 +53,7 @@ function About({ modal, refElement }) {
                   </div>
                </div>
                <div className="data">
-                  <div className="val business-name">ABC Ltd</div>
+                  <div className="val business-name">{userData.business.name}</div>
                </div>
             </div>
             <div className="data-row">
@@ -63,8 +66,7 @@ function About({ modal, refElement }) {
                   </div>
                </div>
                <div className="data">
-
-                  <div className="val">Founder</div>
+                  <div className="val">{userData.business.designation}</div>
                </div>
             </div>
             <div className="data-row">
@@ -77,14 +79,10 @@ function About({ modal, refElement }) {
                   </div>
                </div>
                <div className="data">
-
                   <div className="val">
-                     <p>
-                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptate quaerat soluta
-                        corporis dolores explicabo sed hic aperiam voluptatem assumenda in.</p>
-                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam voluptate quasi est,
-                        recusandae rem voluptatum! Eveniet numquam totam quasi autem molestias amet et
-                        commodi? Sunt vel soluta consectetur tempora doloribus.</p>
+                     {userData.business.about.map((element, index) => {
+                        return (<p key={index}>{element}</p>)
+                     })}
                   </div>
                </div>
             </div>
@@ -100,12 +98,9 @@ function About({ modal, refElement }) {
                <div className="data">
                   <div className="val">
                      <ul className="service-list">
-                        <li>Service 1</li>
-                        <li>Service 2</li>
-                        <li>Service 3</li>
-                        <li>Service 4</li>
-                        <li>Service 5</li>
-                        <li>Service 6</li>
+                        {userData.business.services.map((element, index) => {
+                           return (<li key={index}>{element}</li>)
+                        })}
                      </ul>
                   </div>
                </div>
@@ -118,33 +113,50 @@ function About({ modal, refElement }) {
                      <label className="mr">इ-फाईल</label>
                      <label className="hn">इ-फाईल</label>
                   </div>
-
-
                </div>
                <div className="data">
-
                   <div className="val">
                      <div className="efiles-sec">
-                        <a href="#" className="e-file " download>
-                           <span className="file-ico"><i className="fa-light fa-file-pdf"></i></span>
-                           <span className="file-name">File 1.pdf</span>
-                           <span className="file-act-ico"><i className="fad fa-download"></i></span>
-                        </a>
-                        <a href="#" className="e-file " download>
-                           <span className="file-ico"><i className="fa-light fa-file-excel"></i></span>
-                           <span className="file-name">File 2.xls</span>
-                           <span className="file-act-ico"><i className="fad fa-download"></i></span>
-                        </a>
-                        <a href="#" className="e-file " download>
-                           <span className="file-ico"><i className="fa-light fa-file-powerpoint"></i></span>
-                           <span className="file-name">File 3.ppt</span>
-                           <span className="file-act-ico"><i className="fad fa-download"></i></span>
-                        </a>
-                        <a href="#" className="e-file " download>
-                           <span className="file-ico"><i className="fa-light fa-file-word"></i></span>
-                           <span className="file-name">File 4.doc</span>
-                           <span className="file-act-ico"><i className="fad fa-download"></i></span>
-                        </a>
+                        {userData.business.efiles.map((element, index) => {
+                           return (
+                              <>
+                                 {element.type === "pdf" &&
+                                    <a href={element.src} className="e-file " download>
+                                       <span className="file-ico"><i className={`fa-light fa-file-pdf`}></i></span>
+                                       <span className="file-name">{element.title}</span>
+                                       <span className="file-act-ico"><i className="fad fa-download"></i></span>
+                                    </a>
+                                 }
+                                 {element.type === "doc" &&
+                                    <a href={element.src} className="e-file " download>
+                                       <span className="file-ico"><i className="fa-light fa-file-word"></i></span>
+                                       <span className="file-name">{element.title}</span>
+                                       <span className="file-act-ico"><i className="fad fa-download"></i></span>
+                                    </a>
+                                 }
+
+                                 {element.type === "xls" &&
+                                    <a href={element.src} className="e-file " download>
+                                       <span className="file-ico"><i className="fa-light fa-file-excel"></i></span>
+                                       <span className="file-name">{element.title}</span>
+                                       <span className="file-act-ico"><i className="fad fa-download"></i></span>
+                                    </a>
+                                 }
+
+                                 {element.type === "ppt" &&
+                                    <a href={element.src} className="e-file " download>
+                                       <span className="file-ico"><i className="fa-light fa-file-powerpoint"></i></span>
+                                       <span className="file-name">{element.title}</span>
+                                       <span className="file-act-ico"><i className="fad fa-download"></i></span>
+                                    </a>
+                                 }
+
+                              </>
+                           )
+                        })}
+
+
+
                      </div>
                   </div>
                </div>
@@ -161,8 +173,7 @@ function About({ modal, refElement }) {
 
                </div>
                <div className="data">
-                  <div className="val">Flat No. 100, Building No. A-10, 3rd Floor, Sector 10,  Fort,
-                     Navi Mumbai - 400 001</div>
+                  <div className="val">{userData.business.address}</div>
                </div>
             </div>
             <div className="data-row">
@@ -172,7 +183,7 @@ function About({ modal, refElement }) {
                </div>
                <div className="data">
                   <div className="val">
-                     <span ref={gstin_no}>123456789ABCDEFG</span>
+                     <span ref={gstin_no}>{userData.business.gstin}</span>
                      <i className={`fa-light fa-clone copy-to-clipboard ${Copied ? 'copied' : ''}`} onClick={(e) => { copyToClipboard(gstin_no.current.innerText) }}>
                         <span className="tooltip-text">Copied</span>
                      </i>
@@ -185,8 +196,20 @@ function About({ modal, refElement }) {
                   <div className="lbl">MSME</div>
                </div>
                <div className="data">
-                  <div className="val"><span id="business-msme">123456789ABCDEFG</span> <i
+                  <div className="val"><span id="business-msme">{userData.business.msme}</span> <i
                      className="fa-light fa-clone copy-to-clipboard" data-clipboard-target="#business-msme"></i>
+                  </div>
+               </div>
+            </div>
+
+            <div className="data-row">
+               <div className="title">
+                  <i className="fa-light fa-file-certificate"></i>
+                  <div className="lbl">FSSAI</div>
+               </div>
+               <div className="data">
+                  <div className="val"><span id="business-fssai">{userData.business.fssai}</span> <i
+                     className="fa-light fa-clone copy-to-clipboard" data-clipboard-target="#business-fssai"></i>
                   </div>
                </div>
             </div>
@@ -202,9 +225,8 @@ function About({ modal, refElement }) {
 
                </div>
                <div className="data">
-
-                  <div className="val"><a href="mailto:business@gmail.com" id="copy-business-email"
-                     className="link">business@gmail.com</a><i className="fa-light fa-clone copy-to-clipboard"
+                  <div className="val"><a href={`mailto:${userData.business.email}`} id="copy-business-email"
+                     className="link">{userData.business.email}</a><i className="fa-light fa-clone copy-to-clipboard"
                         data-clipboard-target="#copy-business-email"></i>
                   </div>
                </div>
@@ -221,7 +243,7 @@ function About({ modal, refElement }) {
                <div className="data">
 
 
-                  <div className="val"><span id="copy-business-number">+91 9876543210</span><i
+                  <div className="val"><span id="copy-business-number">{userData.business.call}</span><i
                      className="fa-light fa-clone copy-to-clipboard"
                      data-clipboard-target="#copy-business-number"></i>
                   </div>
@@ -240,8 +262,6 @@ function About({ modal, refElement }) {
 
                </div>
                <div className="data">
-
-
                   <div className="val"><a href="https://www.websitename.com/"
                      id="copy-business-website" className="link">www.websiteName.com</a><i
                         className="fa-light fa-clone copy-to-clipboard"
@@ -253,7 +273,6 @@ function About({ modal, refElement }) {
                <div className="title">
                   <i className="fa-light fa-link"></i>
                   <div className="lbl">SmartIDy URL</div>
-
                </div>
                <div className="data">
 

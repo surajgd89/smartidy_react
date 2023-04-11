@@ -1,10 +1,17 @@
-
+import { useGlobalContext } from '../../context';
+import { useEffect } from "react";
 import './Gallery.scss';
 import GalleryImage from '../../assets/images/gallery-default.jpg';
 
 
-function Gallery(props) {
-   const setModalOpen = props.setModalOpen;
+function Gallery({ modal }) {
+   const setModalOpen = modal;
+   const { Data } = useGlobalContext();
+   useEffect(() => {
+      console.log(Data)
+   }, [])
+
+
    return (
       <div className="page gallery">
          <div className="header">

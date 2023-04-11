@@ -1,7 +1,12 @@
-
+import { useEffect } from "react";
+import { useGlobalContext } from '../../context';
 import './Modal.scss';
 function UpiPaymentModal(props) {
    let setModalOpen = props.modal;
+   const { Data } = useGlobalContext();
+   useEffect(() => {
+      console.log(Data)
+   }, [])
    return (
       <div className="modal-backdrop">
          <div className="modal">
@@ -18,11 +23,11 @@ function UpiPaymentModal(props) {
                <div className="pay-form">
                   <form id="payForm">
                      <div className="control-group">
-                        <input type="number" id="upiAmt" name="upiAmt" placeholder="Enter Amount" maxlength="5"
+                        <input type="number" id="upiAmt" name="upiAmt" placeholder="Enter Amount" maxLength="5"
                            required />
                      </div>
                      <div className="control-group">
-                        <input type="text" id="payDesc" name="payDesc" placeholder="Enter Description" maxlength="80"
+                        <input type="text" id="payDesc" name="payDesc" placeholder="Enter Description" maxLength="80"
                            required />
                      </div>
                      <div className="action-sec">

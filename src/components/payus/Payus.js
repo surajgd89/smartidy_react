@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+import { useGlobalContext } from '../../context';
 import './PayUs.scss';
 import PGLogo from '../../assets/images/pg-logo-default.jpg';
 import GpayLogo from "../../assets/images/g-pay.png";
@@ -5,8 +7,14 @@ import PhonePayLogo from "../../assets/images/p-pay.png";
 import PayTmLogo from "../../assets/images/paytm.png";
 import BhimLogo from "../../assets/images/bhim.png";
 
-function PayUs(props) {
-   const setModalOpen = props.setModalOpen;
+
+function PayUs({ modal }) {
+   const setModalOpen = modal;
+   const { Data } = useGlobalContext();
+   useEffect(() => {
+      console.log(Data)
+   }, [])
+
    return (
       <div className="page payus">
          <div className="header">

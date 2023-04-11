@@ -1,7 +1,12 @@
-
+import { useEffect } from "react";
+import { useGlobalContext } from '../../context';
 import './Modal.scss';
 function VisitModal(props) {
    let setModalOpen = props.modal;
+   const { Data } = useGlobalContext();
+   useEffect(() => {
+      console.log(Data)
+   }, [])
 
    return (
 

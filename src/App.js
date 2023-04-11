@@ -21,7 +21,8 @@ import UpiPaymentModal from './layout/modals/UpiPaymentModal';
 function App() {
 
   const { Data } = useGlobalContext();
-  const searchParams = `?id=${Data.userID}`
+  //const searchParams = `?id=${Data.userID}`;
+  //console.log(Data)
 
   let [modalOpen, setModalOpen] = useState({
     VisitModal: false,
@@ -44,15 +45,15 @@ function App() {
     <>
       {Data.error != null ? <h2 className="data-error">{Data.error}</h2> : ''}
       {Data.isLoading && <div className="loader"></div>}
-      {Data.user != null && <div className="wrapper" data-lang={Data.user.config.language}>
+      {Data.userData != null && <div className="wrapper" data-lang={Data.userData.config.language}>
         <div className="inner-body">
           <BrowserRouter>
             <Routes>
-              <Route path="/SmartIDy" element={<Tabs refElement={{ tabs, Data }} />}>
-                <Route index path={`home${searchParams}`} element={<Home modal={setModalOpen} refElement={{ profile, social, tabs }} />} />
-                <Route path={`about${searchParams}`} element={<About modal={setModalOpen} refElement={{ gstin_no }} />} />
-                <Route path={`gallery${searchParams}`} element={<Gallery modal={setModalOpen} />} />
-                <Route path={`payus${searchParams}`} element={<PayUs modal={setModalOpen} />} />
+              <Route path={`/`} element={<Tabs refElement={{ tabs }} />}>
+                <Route index path={`home`} element={<Home modal={setModalOpen} refElement={{ profile, social, tabs }} />} />
+                <Route path={`about`} element={<About modal={setModalOpen} refElement={{ gstin_no }} />} />
+                <Route path={`gallery`} element={<Gallery modal={setModalOpen} />} />
+                <Route path={`payus`} element={<PayUs modal={setModalOpen} />} />
               </Route>
             </Routes>
           </BrowserRouter>

@@ -1,7 +1,12 @@
-
+import { useEffect } from "react";
+import { useGlobalContext } from '../../context';
 import './Modal.scss';
 function EmailModal(props) {
    let setModalOpen = props.modal;
+   const { Data } = useGlobalContext();
+   useEffect(() => {
+      console.log(Data)
+   }, [])
    return (
       <div className="modal-backdrop">
          <div className="modal">
