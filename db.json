@@ -128,32 +128,27 @@
                 "gallery": [
                     {
                         "title": "Image 1",
-                        "src": "./src/assets/images/user/sd-gallery-1.jpg"
+                        "src": "http://placeimg.com/800/800/nature"
                     },
-
                     {
                         "title": "Image 2",
-                        "src": "/src/assets/images/user/sd-gallery-2.jpg"
+                        "src": "http://placeimg.com/800/800/people"
                     },
-
                     {
                         "title": "Image 3",
-                        "src": "/src/assets/images/user/sd-gallery-3.jpg"
+                        "src": "http://placeimg.com/800/800/nature"
                     },
-
                     {
                         "title": "Image 4",
-                        "src": "/src/assets/images/user/sd-gallery-4.jpg"
+                        "src": "http://placeimg.com/800/800/people"
                     },
-
                     {
                         "title": "Image 5",
-                        "src": "/src/assets/images/user/sd-gallery-5.jpg"
+                        "src": "http://placeimg.com/800/800/nature"
                     },
-
                     {
                         "title": "Image 6",
-                        "src": "/src/assets/images/user/sd-gallery-6.jpg"
+                        "src": "http://placeimg.com/800/800/people"
                     }
                 ],
                 "videos": [

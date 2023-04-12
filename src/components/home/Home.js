@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
 import moment from 'moment/moment';
 import { useGlobalContext } from '../../context';
-import ProfilePhoto from '../../assets/images/profile-photo-default.jpg';
-import BusinessLogo from '../../assets/images/business-logo-default.jpg';
+
+import ProfilePhotoDefault from '../../assets/images/profile-photo-default.jpg';
+import BusinessLogoDefault from '../../assets/images/business-logo-default.jpg';
 
 import './Home.scss';
 
@@ -54,7 +55,7 @@ function Home({ modal, refElement }) {
       return (
          <div id="business" className="profile-item">
             <a className="image" href="#" onClick={(e) => { e.preventDefault(); }}>
-               <img src={BusinessLogo} />
+               <img src={BusinessLogoDefault} />
             </a>
             <div className="head" id="businessName">
                <label className="en">{userData.business.name}</label>
@@ -85,7 +86,7 @@ function Home({ modal, refElement }) {
       return (
          <div id="individual" className="profile-item">
             <a className="image" href="#" onClick={(e) => { e.preventDefault(); }}>
-               <img src={ProfilePhoto} />
+               <img src={ProfilePhotoDefault} />
             </a>
             <div className=" head" id="individualName">
                <label>{userData.individual.name}</label>

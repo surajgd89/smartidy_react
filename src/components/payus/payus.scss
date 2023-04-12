@@ -90,35 +90,6 @@
                     margin-left: 10px;
                 }
             }
-
-            &.not-configured {
-                pointer-events: none;
-                position: relative;
-
-                &::after {
-                    content: attr(data-not-configured);
-                    color: #fff;
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    right: 0;
-                    max-width: 140px;
-                    text-align: center;
-                    margin: auto;
-                    background: var(--secondary-light);
-                    font-size: 11px;
-                    padding: 2px 5px;
-                    border-radius: 0 0 4px 4px;
-                }
-
-                .upi-btn {
-                    background: #f5f5f5;
-                    opacity: 0.5;
-                    padding-top: 25px;
-                }
-
-               
-            }
         }
 
         .pg-sec {
@@ -182,32 +153,6 @@
                         margin: 0 10px;
                         max-width: 100%;
                     }
-                }
-            }
-
-            &.not-configured {
-                pointer-events: none;
-                position: relative;
-                &::after {
-                    content: attr(data-not-configured);
-                    color: #fff;
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    right: 0;
-                    max-width: 220px;
-                    text-align: center;
-                    margin: auto;
-                    background: var(--secondary-light);
-                    font-size: 11px;
-                    padding: 2px 5px;
-                    border-radius: 0 0 4px 4px;
-                }
-
-                .pg-btn {
-                    background: #f5f5f5;
-                    opacity: 0.5;
-                    padding-top: 30px;
                 }
             }
         }
@@ -300,32 +245,24 @@
                     }
                 }
             }
+        }
 
-            &.not-configured {
-                pointer-events: none;
-                position: relative;
+        .not-configured {
+            pointer-events: none;
+            position: relative;
+            text-align: center;
+            background: #f5f5f5;
+            opacity: 0.5;
+            padding: 25px;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            margin-bottom: 30px;
+            display: flex;
+            flex-direction: column;
 
-                &::after {
-                    content: attr(data-not-configured);
-                    color: #fff;
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    right: 0;
-                    max-width: 220px;
-                    text-align: center;
-                    margin: auto;
-                    background: var(--secondary-light);
-                    font-size: 11px;
-                    padding: 2px 5px;
-                    border-radius: 0 0 4px 4px;
-                }
-
-                .account-data {
-                    background: #f5f5f5;
-                    opacity: 0.5;
-                    padding-top: 25px;
-                }
+            i {
+                font-size: 28px;
+                margin-bottom: 10px;
             }
         }
     }
