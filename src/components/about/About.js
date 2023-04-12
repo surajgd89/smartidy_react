@@ -11,27 +11,22 @@ function About({ modal, refElement }) {
    const { gstin_no } = refElement;
    const tooltip = useRef();
 
-
-
    const [Day, setDay] = useState('');
-   const [Copied, setCopied] = useState(false);
    const [Position, setPosition] = useState({});
+   const [Copied, setCopied] = useState(false);
+
 
    const copyToClipboard = (e, data) => {
-
-
       navigator.clipboard.writeText(data);
       setCopied(true);
-
-      let left = tooltip.current.clientWidth;
-      console.log(left);
-
-      // console.log(tooltip.current.clientHeight)
-      // console.log(tooltip.current.clientWidth)
-      setPosition({ left: e.target.offsetLeft, top: e.target.offsetTop })
-      // setTimeout(() => {
-      //    setCopied(false);
-      // }, 1500)
+      setTimeout(() => {
+         let left = e.target.offsetLeft - (tooltip.current.clientWidth / 2) + 8;
+         let top = e.target.offsetTop - (tooltip.current.clientHeight + 8);
+         setPosition({ left: left, top: top })
+      }, 300);
+      setTimeout(() => {
+         setCopied(false);
+      }, 2000)
    }
 
    useEffect(() => {
@@ -300,8 +295,9 @@ function About({ modal, refElement }) {
                      <div className="val">
                         <ul className="buss-hrs-sec">
                            {userData.business.workingDayHrs.map((element, index) => {
+                              index = index + 1;
                               return (
-                                 <li className={index == 1 ? 'active' : ''} key={index}>
+                                 <li className={index == Day ? 'active' : ''} key={index}>
                                     <div className="day">
                                        <label className="en">{element.day}</label>
                                     </div>
