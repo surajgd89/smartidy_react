@@ -66,7 +66,7 @@ function Gallery({ modal }) {
                   <label className="hn">गॅलरी</label>
                </div>
                <div className="action">
-                  <a onClick={() => { setModalOpen({ 'ShareModal': true }) }} className="share-all ">
+                  <a href="#" onClick={(e) => { e.preventDefault(); setModalOpen({ 'ShareModal': true }) }} className="share-all">
                      <i className="fa-light fa-share-alt"></i>
                   </a>
                </div>
@@ -126,22 +126,15 @@ function Gallery({ modal }) {
                   <div className="videos-area">
                      {videos != null ?
                         <div className="videos-list">
-                           <a href="#" className="video-item">
-                              <span className="ico"><i className="fa-light fa-video"></i></span>
-                              <span className="name">Video 1 </span>
-                           </a>
-                           <a href="#" className="video-item">
-                              <span className="ico"><i className="fa-light fa-video"></i></span>
-                              <span className="name">Video 2 </span>
-                           </a>
-                           <a href="#" className="video-item">
-                              <span className="ico"><i className="fa-light fa-video"></i></span>
-                              <span className="name">Video 3 </span>
-                           </a>
-                           <a href="#" className="video-item">
-                              <span className="ico"><i className="fa-light fa-video"></i></span>
-                              <span className="name">Video 4 </span>
-                           </a>
+
+                           {videos.map((element, index) => {
+                              return (
+                                 <a href={element.url} className="video-item" target='_blank'>
+                                    <span className="ico"><i className="fa-light fa-video"></i></span>
+                                    <span className="name">{element.title}</span>
+                                 </a>
+                              )
+                           })}
                         </div>
                         : <div className="info-message">
                            <img className="info-ico" src={noVideoIcon} alt="" />

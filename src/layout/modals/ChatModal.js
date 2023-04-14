@@ -21,11 +21,9 @@ function ChatModal(props) {
             </div>
             <div className="modal-body">
                <div className="item-list">
-
                   {userData.individual.chat.map((element, index) => {
-
                      return (
-                        <a href={element.value} className="item-row" key={index}>
+                        <a href={element.title == "WhatsApp" ? `https://wa.me/${element.value}` : `https://t.me/${element.value}`} className="item-row" key={index} target="_blank">
                            <span className="lbl">
                               <label className="en">Individual {element.title}</label>
                               <label className="mr">वैयक्तिक {element.title}</label>
@@ -33,13 +31,11 @@ function ChatModal(props) {
                            </span>
                            <span className="val">{element.value}</span>
                         </a>
-
                      )
                   })}
-
                   {userData.business.chat.map((element, index) => {
                      return (
-                        <a href={element.value} className="item-row" key={index}>
+                        <a href={element.title == "WhatsApp" ? `https://wa.me/${element.value}` : `https://t.me/${element.value}`} className="item-row" key={index} target="_blank">
                            <span className="lbl">
                               <label className="en">Business {element.title}</label>
                               <label className="mr">व्यवसाय {element.title}</label>
@@ -49,12 +45,10 @@ function ChatModal(props) {
                         </a>
                      )
                   })}
-
-
                </div>
             </div>
          </div>
-      </div>
+      </div >
 
    );
 }

@@ -18,11 +18,10 @@
     --fw-black: 900;
 
     //Colors
-    --primary: #f15b28;
-    --primary-dark: #e65220;
+
     --secondary: #212121;
     --secondary-light: #737373;
-    --title-color: #411f85;
+
     --border: #d0d4da;
     --link: #065fd4;
 
@@ -50,7 +49,6 @@
     --quora-color: #b92b27;
     --pinterest-color: #bd081c;
     --behance-color: #1769ff;
-    --telegram-color: #0088cc;
     --dribble-color: #ea4c89;
     --telegram-color: #3390ec;
 }
@@ -86,8 +84,8 @@
     border-radius: 4px;
     position: absolute;
     z-index: 1;
-    transition: all 300ms;
-    animation: fadeIn 0.5s ease-in-out 500ms both;
+    pointer-events: none;
+    animation: fadeIn 0.7s ease-in-out 0.5s both;
 
     @keyframes fadeIn {
         0% {
@@ -96,6 +94,20 @@
         100% {
             opacity: 1;
         }
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        right: 0;
+        height: 0;
+        width: 0;
+        transform: translateX(-50%);
+        border: 6px solid transparent;
+        border-top-color: #222;
+        transition: all 100ms;
     }
 }
 
@@ -216,6 +228,9 @@ button {
     display: flex;
     align-items: center;
     justify-content: center;
+    --primary: #f15b28;
+    --primary-dark: #e65220;
+    --title-color: #411f85;
 
     .inner-body {
         width: 100%;

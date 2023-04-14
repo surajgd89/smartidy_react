@@ -1,38 +1,18 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import moment from 'moment/moment';
 import { useGlobalContext } from '../../context';
 import './About.scss';
 
+function About({ modal, handleCopyClipboard }) {
 
-function About({ modal, refElement }) {
    const { Data } = useGlobalContext();
    const userData = Data.userData;
    const setModalOpen = modal;
-   const { gstin_no } = refElement;
-   const tooltip = useRef();
-
    const [Day, setDay] = useState('');
-   const [Position, setPosition] = useState({});
-   const [Copied, setCopied] = useState(false);
-
-
-   const copyToClipboard = (e, data) => {
-      navigator.clipboard.writeText(data);
-      setCopied(true);
-      setTimeout(() => {
-         let left = e.target.offsetLeft - (tooltip.current.clientWidth / 2) + 8;
-         let top = e.target.offsetTop - (tooltip.current.clientHeight + 8);
-         setPosition({ left: left, top: top })
-      }, 300);
-      setTimeout(() => {
-         setCopied(false);
-      }, 2000)
-   }
 
    useEffect(() => {
       setDay(moment().isoWeekday())
    }, [])
-
 
    return (
       <>
@@ -44,7 +24,7 @@ function About({ modal, refElement }) {
                   <label className="hn">जानकारी</label>
                </div>
                <div className="action">
-                  <a onClick={() => { setModalOpen({ 'ShareModal': true }) }} className="share-all ">
+                  <a href="#" onClick={(e) => { e.preventDefault(); setModalOpen({ 'ShareModal': true }) }} className="share-all">
                      <i className="fa-light fa-share-alt"></i>
                   </a>
                </div>
@@ -177,7 +157,10 @@ function About({ modal, refElement }) {
 
                   </div>
                   <div className="data">
-                     <div className="val">{userData.business.address}</div>
+                     <div className="val">
+                        <span>{userData.business.address}</span>
+                        <i className="fa-light fa-clone copy-to-clipboard" onClick={(e) => { handleCopyClipboard(e, userData.business.address) }}></i>
+                     </div>
                   </div>
                </div>
                <div className="data-row">
@@ -187,8 +170,8 @@ function About({ modal, refElement }) {
                   </div>
                   <div className="data">
                      <div className="val">
-                        <span ref={gstin_no}>{userData.business.gstin}</span>
-                        <i className="fa-light fa-clone copy-to-clipboard" onClick={(e) => { copyToClipboard(e, userData.business.gstin) }}>
+                        <span>{userData.business.gstin}</span>
+                        <i className="fa-light fa-clone copy-to-clipboard" onClick={(e) => { handleCopyClipboard(e, userData.business.gstin) }}>
 
                         </i>
                      </div>
@@ -201,7 +184,7 @@ function About({ modal, refElement }) {
                   </div>
                   <div className="data">
                      <div className="val"><span>{userData.business.msme}</span>
-                        <i className="fa-light fa-clone copy-to-clipboard" onClick={(e) => { copyToClipboard(e, userData.business.msme) }}>
+                        <i className="fa-light fa-clone copy-to-clipboard" onClick={(e) => { handleCopyClipboard(e, userData.business.msme) }}>
 
                         </i>
                      </div>
@@ -215,7 +198,7 @@ function About({ modal, refElement }) {
                   </div>
                   <div className="data">
                      <div className="val"><span>{userData.business.fssai}</span> <i
-                        className="fa-light fa-clone copy-to-clipboard"></i>
+                        className="fa-light fa-clone copy-to-clipboard" onClick={(e) => { handleCopyClipboard(e, userData.business.fssai) }}></i>
                      </div>
                   </div>
                </div>
@@ -232,8 +215,7 @@ function About({ modal, refElement }) {
                   </div>
                   <div className="data">
                      <div className="val"><a href={`mailto:${userData.business.email}`}
-                        className="link">{userData.business.email}</a><i className="fa-light fa-clone copy-to-clipboard"
-                        ></i>
+                        className="link">{userData.business.email}</a><i className="fa-light fa-clone copy-to-clipboard" onClick={(e) => { handleCopyClipboard(e, userData.business.email) }}></i>
                      </div>
                   </div>
                </div>
@@ -250,7 +232,7 @@ function About({ modal, refElement }) {
 
 
                      <div className="val"><span>{userData.business.call}</span><i
-                        className="fa-light fa-clone copy-to-clipboard"
+                        className="fa-light fa-clone copy-to-clipboard" onClick={(e) => { handleCopyClipboard(e, userData.business.call) }}
                      ></i>
                      </div>
                   </div>
@@ -267,7 +249,7 @@ function About({ modal, refElement }) {
                   <div className="data">
                      <div className="val"><a href={userData.business.website}
                         className="link">{userData.business.website}</a><i
-                           className="fa-light fa-clone copy-to-clipboard"></i>
+                           className="fa-light fa-clone copy-to-clipboard" onClick={(e) => { handleCopyClipboard(e, userData.business.website) }}></i>
                      </div>
                   </div>
                </div>
@@ -278,7 +260,8 @@ function About({ modal, refElement }) {
                   </div>
                   <div className="data">
                      <div className="val">
-                        <a href={userData.config.smartIdyURL} className="link smartidy-url">{userData.config.smartIdyURL}</a><i className="fa-light fa-clone copy-to-clipboard"></i>
+                        <a href={userData.config.smartIdyURL} className="link smartidy-url">{userData.config.smartIdyURL}</a>
+                        <i className="fa-light fa-clone copy-to-clipboard" onClick={(e) => { handleCopyClipboard(e, userData.config.smartIdyURL) }}></i>
                      </div>
                   </div>
                </div>
@@ -299,7 +282,7 @@ function About({ modal, refElement }) {
                               return (
                                  <li className={index == Day ? 'active' : ''} key={index}>
                                     <div className="day">
-                                       <label className="en">{element.day}</label>
+                                       <label>{element.day}</label>
                                     </div>
                                     {element.closed ?
                                        <div className="time">
@@ -318,10 +301,8 @@ function About({ modal, refElement }) {
                   </div>
                </div>
             </div>
-         </div >
-         {Copied && <span className="tooltip-text" ref={tooltip} style={Position}>Copied</span>}
+         </div>
       </>
-
    )
 }
 export default About;

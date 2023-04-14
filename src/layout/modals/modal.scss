@@ -274,33 +274,27 @@
     }
 
     .share-via {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: center;
-        margin: -5px;
+        display: grid;
+        gap: 10px;
+        grid-template-columns: auto auto;
 
         .share-opt {
-            display: inline-flex;
-            flex-direction: row;
+            display: flex;
             align-items: center;
-            justify-content: flex-start;
-            flex: 0 0 180px;
-            max-width: 100%;
-            padding: 10px 20px;
+            justify-content: center;
+            padding: 10px 16px;
             color: #fff;
             border-radius: 6px;
             font-weight: var(--fw-medium);
             text-decoration: none;
             outline: 0;
             border: 0;
-            margin: 5px;
+            cursor: pointer;
 
             @include mobile {
-                flex: 1 0 100%;
-                max-width: 130px;
                 padding: 10px;
             }
+
             i {
                 font-size: 24px;
                 margin-right: 10px;
@@ -323,14 +317,23 @@
                 background-color: var(--whatsapp-color);
             }
 
+            &.facebook {
+                background-color: var(--facebook-color);
+            }
+
             &.telegram {
                 background-color: var(--telegram-color);
             }
-            &.sms {
-                background-color: var(--sms-color);
+
+            &.twitter {
+                background-color: var(--telegram-color);
+            }
+
+            &.linkedin {
+                background-color: var(--linkedin-color);
             }
             &.email {
-                background-color: var(--instagram-color);
+                background-color: var(--email-color);
             }
         }
     }

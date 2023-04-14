@@ -7,11 +7,20 @@ import BhimLogo from "../../assets/images/bhim.png";
 import PGLogoDefault from '../../assets/images/pg-logo-default.jpg';
 
 
-function PayUs({ modal }) {
+function PayUs({ modal, handleCopyClipboard }) {
    const setModalOpen = modal;
    const { Data } = useGlobalContext();
    const userData = Data.userData;
 
+   const accountDetails = () => {
+      const name = userData.business.bankAccount.name;
+      const bank = userData.business.bankAccount.bank;
+      const number = userData.business.bankAccount.number;
+      const ifsc = userData.business.bankAccount.ifsc;
+      const type = userData.business.bankAccount.type;
+      const branch = userData.business.bankAccount.branch;
+      return `Name:${name},\nBank Name: ${bank},\nAccount No : ${number},\nIFSC Code: ${ifsc},\nAccount Type : ${type},\<n></n>Branch : ${branch}`
+   }
 
    return (
       <div className="page payus">
@@ -22,7 +31,7 @@ function PayUs({ modal }) {
                <label className="hn">व्यवहार</label>
             </div>
             <div className="action">
-               <a onClick={() => { setModalOpen({ 'ShareModal': true }) }} className="share-all" title="Share Via">
+               <a href="#" onClick={(e) => { e.preventDefault(); setModalOpen({ 'ShareModal': true }) }} className="share-all">
                   <i className="fa-light fa-share-alt"></i>
                </a>
             </div>
@@ -53,7 +62,8 @@ function PayUs({ modal }) {
                      </div>
                   </a>
                   <div className="upi-id">
-                     <span >{userData.business.upiId}</span> <i className="fa-light fa-clone copy-to-clipboard"></i>
+                     <span >{userData.business.upiId}</span>
+                     <i className="fa-light fa-clone copy-to-clipboard" onClick={(e) => { handleCopyClipboard(e, userData.business.upiId) }}></i>
                   </div>
                </div> :
                <div className="not-configured">
@@ -76,7 +86,7 @@ function PayUs({ modal }) {
                         <label className="hn"> UPI और Net Banking के व्यवहार के लिए </label>
                      </span>
                      <div className="pg-logos">
-                        <img src={PGLogoDefault} />
+                        <img src={userData.business.paymentGateway.logo} />
                      </div>
                   </a>
                </div> :
@@ -89,8 +99,7 @@ function PayUs({ modal }) {
             {userData.business.bankAccount != null ?
                <div className="account-sec">
                   <div className="account-data">
-                     <span className="copy copy-to-clipboard ">
-                        <i className="fa-light fa-clone"></i></span>
+                     <i className="fa-light fa-clone copy-to-clipboard copy" onClick={(e) => { handleCopyClipboard(e, accountDetails()) }}></i>
                      <div className="acc-row">
                         <div className="lbl">
                            <label className="en">Name</label>
@@ -113,8 +122,7 @@ function PayUs({ modal }) {
                            <label className="mr">खाते क्रमांक</label>
                            <label className="hn">खाता क्रमांक</label>
                         </div>
-                        <div className="val"><span id="accountNo">{userData.business.bankAccount.number}</span><i
-                           data-clipboard-target="#accountNo" className="fa-light fa-clone copy-to-clipboard"></i>
+                        <div className="val"><span >{userData.business.bankAccount.number}</span><i className="fa-light fa-clone copy-to-clipboard" onClick={(e) => { handleCopyClipboard(e, userData.business.bankAccount.number) }}></i>
                         </div>
                      </div>
                      <div className="acc-row">
@@ -123,8 +131,9 @@ function PayUs({ modal }) {
                            <label className="mr">IFSC कोड</label>
                            <label className="hn">IFSC कोड</label>
                         </div>
-                        <div className="val"><span id="ifscNo">{userData.business.bankAccount.ifsc}</span><i data-clipboard-target="#ifscNo"
-                           className="fa-light fa-clone copy-to-clipboard"></i></div>
+                        <div className="val"><span id="ifscNo">{userData.business.bankAccount.ifsc}</span>
+                           <i className="fa-light fa-clone copy-to-clipboard" onClick={(e) => { handleCopyClipboard(e, userData.business.bankAccount.ifsc) }}></i>
+                        </div>
                      </div>
                      <div className="acc-row">
                         <div className="lbl">

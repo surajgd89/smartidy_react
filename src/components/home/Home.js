@@ -48,14 +48,12 @@ function Home({ modal, refElement }) {
    }, [Profile])
 
 
-
-
    const BusinessProfile = () => {
 
       return (
          <div id="business" className="profile-item">
             <a className="image" href="#" onClick={(e) => { e.preventDefault(); }}>
-               <img src={BusinessLogoDefault} />
+               <img src={userData.business.logo} />
             </a>
             <div className="head" id="businessName">
                <label className="en">{userData.business.name}</label>
@@ -86,7 +84,7 @@ function Home({ modal, refElement }) {
       return (
          <div id="individual" className="profile-item">
             <a className="image" href="#" onClick={(e) => { e.preventDefault(); }}>
-               <img src={ProfilePhotoDefault} />
+               <img src={userData.individual.profilePic} />
             </a>
             <div className=" head" id="individualName">
                <label>{userData.individual.name}</label>
@@ -212,7 +210,7 @@ function Home({ modal, refElement }) {
                   </span>
                </span>
             </a>
-            <a href="#" onClick={(e) => { e.preventDefault() }} className="google-map ">
+            <a href={userData.business.mapUrl} target='_blank' className="google-map ">
                <span>
                   <i className="fa-light fa-map-marked-alt"></i>
                   <span>
@@ -223,64 +221,53 @@ function Home({ modal, refElement }) {
                </span>
             </a>
          </div>
-         <div className="social" ref={social}>
 
-            {Data.userData.individual.social.facebook &&
-               <a href={Data.userData.individual.social.facebook} className="facebook">
-                  <i className="fab fa-facebook-f"></i>
-                  <span>Facebook</span>
-               </a>
-            }
-            {Data.userData.individual.social.twitter &&
-               <a href={Data.userData.individual.social.twitter} className="twitter">
-                  <i className="fab fa-twitter"></i>
-                  <span>Twitter</span>
-               </a>
-            }
-            {Data.userData.individual.social.linkedin &&
-               <a href={Data.userData.individual.social.linkedin} className="linkedin">
-                  <i className="fab fa-linkedin-in"></i>
-                  <span>Linkedin</span>
-               </a>
-            }
-            {Data.userData.individual.social.instagram &&
-               <a href={Data.userData.individual.social.instagram} className="instagram">
-                  <i className="fab fa-instagram"></i>
-                  <span>Instagram</span>
-               </a>
-            }
-            {Data.userData.individual.social.youtube &&
-               <a href={Data.userData.individual.social.youtube} className="youtube">
-                  <i className="fab fa-youtube"></i>
-                  <span>YouTube</span>
-               </a>
-            }
-            {Data.userData.individual.social.catalogue &&
-               <a href={Data.userData.individual.social.catalogue} className="whatsapp">
-                  <i className="fab fa-whatsapp"></i>
-                  <span>Catalogue</span>
-               </a>
-            }
-            {Data.userData.individual.social.telegram &&
-               <a href={Data.userData.individual.social.telegram} className="telegram">
-                  <i className="fab fa-telegram"></i>
-                  <span>Telegram</span>
-               </a>
-            }
-
-
-
-
-
-
-
-
-
-
-
-
-
-         </div>
+         {userData.social &&
+            <div className="social" ref={social}>
+               {userData.social.facebook &&
+                  <a href={userData.social.facebook} className="facebook" target="_blank">
+                     <i className="fab fa-facebook-f"></i>
+                     <span>Facebook</span>
+                  </a>
+               }
+               {userData.social.twitter &&
+                  <a href={userData.social.twitter} className="twitter" target="_blank">
+                     <i className="fab fa-twitter"></i>
+                     <span>Twitter</span>
+                  </a>
+               }
+               {userData.social.linkedin &&
+                  <a href={userData.social.linkedin} className="linkedin" target="_blank">
+                     <i className="fab fa-linkedin-in"></i>
+                     <span>Linkedin</span>
+                  </a>
+               }
+               {userData.social.instagram &&
+                  <a href={userData.social.instagram} className="instagram" target="_blank">
+                     <i className="fab fa-instagram"></i>
+                     <span>Instagram</span>
+                  </a>
+               }
+               {userData.social.youtube &&
+                  <a href={userData.social.youtube} className="youtube" target="_blank">
+                     <i className="fab fa-youtube"></i>
+                     <span>YouTube</span>
+                  </a>
+               }
+               {userData.social.catalogue &&
+                  <a href={userData.social.catalogue} className="whatsapp" target="_blank">
+                     <i className="fab fa-whatsapp"></i>
+                     <span>Catalogue</span>
+                  </a>
+               }
+               {userData.social.telegram &&
+                  <a href={userData.social.telegram} className="telegram" target="_blank">
+                     <i className="fab fa-telegram"></i>
+                     <span>Telegram</span>
+                  </a>
+               }
+            </div>
+         }
       </div >
    )
 

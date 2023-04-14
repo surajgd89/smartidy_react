@@ -6,28 +6,24 @@
                 "smartIdyURL": "https://www.smartdiy.in/home?id=1",
                 "IsActiveProfileBusiness": true,
                 "language": "en",
-                "IsPicTypeCircle": true
+                "IsPicTypeCircle": true,
+                "theme": {
+                    "primaryColor": "#f15b28",
+                    "primaryDarkColor": "#d95224",
+                    "titleColor": "#411f85"
+                }
             },
             "individual": {
                 "name": "Suraj Patil",
-                "profilePicSrc": "./src/assets/images/profile-photo-default.jpg",
+                "profilePic": "https://fakeimg.pl/512x512/?text=DP",
                 "experties": "Front-End Developer",
                 "call": "+919594415153",
                 "email": "suraj.gd89@gmail.com",
                 "sms": "+919594415153",
-                "social": {
-                    "facebook": "https://www.facebook.com/suraj.gd89",
-                    "twitter": "https://twitter.com/suraj_patil89",
-                    "linkedin": "https://www.linkedin.com/in/surajpatil89/",
-                    "telegram": null,
-                    "instagram": "https://www.instagram.com/i_am_suraj.patil/",
-                    "youtube": "https://www.youtube.com/channel/enter_your_id/",
-                    "catalogue": "https://wa.me/c/911234567890"
-                },
                 "chat": [
                     {
                         "title": "WhatsApp",
-                        "value": "+919594415153"
+                        "value": "9594415153"
                     },
                     {
                         "title": "Telegram",
@@ -37,7 +33,7 @@
             },
             "business": {
                 "name": "Shreesha Digital",
-                "logo": "./src/assets/images/business-logo.png",
+                "logo": "https://fakeimg.pl/250x80/?text=LOGO",
                 "estDate": "10-Nov-2018",
                 "call": "+918450959594",
                 "sms": "+918450959594",
@@ -46,21 +42,12 @@
                 "gstin": "123456789ABCDEFG001",
                 "msme": "123456789ABCDEFG002",
                 "fssai": "123456789ABCDEFG",
-                "address": "Flat No. 302, Building No. L-10, 3rd Floor, Sector 10, Ghansoli, Navi Mumbai - 400 701",
-                "mapUrl": "https://goo.gl/maps/LhY1wqxVWzwV58Cx9",
+                "address": "Meghmalhar CHS, Flat No. 302, Building No. L-10, 3rd Floor, Sector 10, Ghansoli, Navi Mumbai - 400 701",
+                "mapUrl": "https://goo.gl/maps/4MegsAosb3AyXCc67",
                 "upiId": "suraj.gd89@okaxis",
                 "website": "https://www.shreeshadigital.com",
-                "social": {
-                    "facebook": null,
-                    "twitter": null,
-                    "linkedin": null,
-                    "instagram": null,
-                    "telegram": null,
-                    "youtube": null,
-                    "catalogue": null
-                },
                 "paymentGateway": {
-                    "logo": "./src/assets/images/pg-logo-default.jpg",
+                    "logo": "https://fakeimg.pl/250x60/?text=PG LOGO",
                     "url": ""
                 },
                 "bankAccount": {
@@ -128,33 +115,33 @@
                 "gallery": [
                     {
                         "title": "Image 1",
-                        "src": "http://placeimg.com/800/800/nature"
+                        "src": "https://loremflickr.com/512/512/nature?random=1"
                     },
                     {
                         "title": "Image 2",
-                        "src": "http://placeimg.com/800/800/people"
+                        "src": "https://loremflickr.com/512/512/nature?random=2"
                     },
                     {
                         "title": "Image 3",
-                        "src": "http://placeimg.com/800/800/nature"
+                        "src": "https://loremflickr.com/512/512/nature?random=3"
                     },
                     {
                         "title": "Image 4",
-                        "src": "http://placeimg.com/800/800/people"
+                        "src": "https://loremflickr.com/512/512/nature?random=4"
                     },
                     {
                         "title": "Image 5",
-                        "src": "http://placeimg.com/800/800/nature"
+                        "src": "https://loremflickr.com/512/512/nature?random=5"
                     },
                     {
                         "title": "Image 6",
-                        "src": "http://placeimg.com/800/800/people"
+                        "src": "https://loremflickr.com/512/512/nature?random=6"
                     }
                 ],
                 "videos": [
                     {
                         "title": "Video 1",
-                        "url": null
+                        "url": "https://youtu.be/D0UnqGm_miA"
                     },
                     {
                         "title": "Video 2",
@@ -205,6 +192,15 @@
                         "closed": true
                     }
                 ]
+            },
+            "social": {
+                "facebook": "https://www.facebook.com/suraj.gd89",
+                "twitter": "https://twitter.com/suraj_patil89",
+                "linkedin": "https://www.linkedin.com/in/surajpatil89/",
+                "telegram": null,
+                "instagram": "https://www.instagram.com/i_am_suraj.patil/",
+                "youtube": "https://www.youtube.com/channel/enter_your_id/",
+                "catalogue": "https://wa.me/c/911234567890"
             }
         }
     ]

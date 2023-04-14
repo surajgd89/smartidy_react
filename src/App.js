@@ -1,5 +1,7 @@
-import { BrowserRouter, Routes, Route, useParams } from "react-router-dom";
-import { useState, useRef } from 'react';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import { useState, useRef, useEffect } from 'react';
+
 import { useGlobalContext } from './context';
 import './App.scss';
 
@@ -34,26 +36,45 @@ function App() {
     SmsModal: false,
     UpiPaymentModal: false,
   });
+  const [Copied, setCopied] = useState(false);
+  const [Position, setPosition] = useState({ left: 'initial', top: 'initial' });
 
   const profile = useRef();
   const tabs = useRef();
   const social = useRef();
-  const gstin_no = useRef();
+  const tooltip = useRef();
+
+
+
+  const handleCopyClipboard = (e, data) => {
+    navigator.clipboard.writeText(data);
+    setCopied(true);
+    setTimeout(() => {
+      let left = e.pageX - (tooltip.current.clientWidth / 2);
+      let top = e.pageY - (tooltip.current.clientHeight + 14);
+      setPosition({ left: left, top: top });
+    }, 300)
+    setTimeout(() => {
+      setCopied(false);
+      setPosition({ left: 'initial', top: 'initial' })
+    }, 1500)
+  }
+
 
 
   return (
     <>
       {Data.error != null ? <h2 className="data-error">{Data.error}</h2> : ''}
       {Data.isLoading && <div className="loader"></div>}
-      {Data.userData != null && <div className="wrapper" data-lang={Data.userData.config.language}>
+      {Data.userData != null && <div className="wrapper" data-lang={Data.userData.config.language} style={{ "--primary": Data.userData.config.theme.primaryColor, "--primary-dark": Data.userData.config.theme.primaryDarkColor, "--title-color": Data.userData.config.theme.titleColor }}>
         <div className="inner-body">
           <BrowserRouter>
             <Routes>
               <Route path={`/`} element={<Tabs refElement={{ tabs }} />}>
                 <Route index path={`home`} element={<Home modal={setModalOpen} refElement={{ profile, social, tabs }} />} />
-                <Route path={`about`} element={<About modal={setModalOpen} refElement={{ gstin_no }} />} />
+                <Route path={`about`} element={<About modal={setModalOpen} handleCopyClipboard={handleCopyClipboard} />} />
                 <Route path={`gallery`} element={<Gallery modal={setModalOpen} />} />
-                <Route path={`payus`} element={<PayUs modal={setModalOpen} />} />
+                <Route path={`payus`} element={<PayUs modal={setModalOpen} handleCopyClipboard={handleCopyClipboard} />} />
               </Route>
             </Routes>
           </BrowserRouter>
@@ -66,7 +87,10 @@ function App() {
         {modalOpen.ChatModal && <ChatModal modal={setModalOpen} />}
         {modalOpen.SmsModal && <SmsModal modal={setModalOpen} />}
         {modalOpen.UpiPaymentModal && <UpiPaymentModal modal={setModalOpen} />}
-      </div>}
+        {Copied && <span className="tooltip-text" ref={tooltip} style={Position}>Copied</span>}
+      </div>
+      }
+
     </>
   );
 }
