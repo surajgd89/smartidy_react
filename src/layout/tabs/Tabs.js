@@ -6,9 +6,8 @@ import './Tabs.scss';
 function Tabs({ refElement }) {
     let { tabs } = refElement;
     const { Data } = useGlobalContext();
+    const { userID } = Data;
 
-
-    //const searchParams = `?id=${1}`;
     const location = useLocation();
     const TabFloor = useRef();
 
@@ -47,7 +46,7 @@ function Tabs({ refElement }) {
             left: IsActive.offsetLeft,
         });
         InnerPageLoader();
-        //console.log(Data)
+
     }, []);
 
     return (
@@ -59,7 +58,7 @@ function Tabs({ refElement }) {
                     }`}
             >
                 <NavLink
-                    to={`home`}
+                    to={`home${userID}`}
                     onClick={(e) => {
                         handleClick(e);
                     }}
@@ -74,7 +73,7 @@ function Tabs({ refElement }) {
                     </span>
                 </NavLink>
                 <NavLink
-                    to={`about`}
+                    to={`about${userID}`}
                     onClick={(e) => {
                         handleClick(e);
                     }}
@@ -89,7 +88,7 @@ function Tabs({ refElement }) {
                     </span>
                 </NavLink>
                 <NavLink
-                    to={`gallery`}
+                    to={`gallery${userID}`}
                     onClick={(e) => {
                         handleClick(e);
                     }}
@@ -104,7 +103,7 @@ function Tabs({ refElement }) {
                     </span>
                 </NavLink>
                 <NavLink
-                    to={`payus`}
+                    to={`payus${userID}`}
                     onClick={(e) => {
                         handleClick(e);
                     }}
